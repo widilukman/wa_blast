@@ -146,4 +146,4 @@
             <!-- ============================================================== -->
             
 <?php include("./templates/footer.php"); ?>
-<?php include("./scriptTable.php") ?>
+<?php include("./templates/scriptTable.php") ?>
