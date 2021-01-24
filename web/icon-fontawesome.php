@@ -1,5 +1,5 @@
-<?php include("./web/templates/header.php"); ?>
-<?php include("./web/templates/sidebar.php"); ?>
+<?php include("./templates/header.php"); ?>
+<?php include("./templates/sidebar.php"); ?>
 
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
@@ -2573,5 +2573,5 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-<?php include("./web/templates/footer.php"); ?>
+<?php include("./templates/footer.php"); ?>
             
