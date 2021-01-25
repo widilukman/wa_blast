@@ -1,10 +1,6 @@
-<?php
-    require_once('../functions/db_login.php');
-?>
-
 <?php $title = "STNK/Servis | WA Blast"; ?>
-<?php include("./templates/header.php"); ?>
-<?php include("./templates/sidebar.php"); ?>
+<?php include("templates/header.php"); ?>
+<?php include("templates/sidebar.php"); ?>
 
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
@@ -45,22 +41,21 @@
                         <div class="card">
                             <div class="card-body" id="cardSTNK">
                                 <div class="table-responsive">
-                                    <table class="table user-table no-wrap table-striped" id="tableSTNK">
+                                    <table class="table user-table no-wrap table-striped" id="TableSTNK">
                                         <thead>
                                             <tr>
                                                 <th class="border-top-0">Nopol</th>
                                                 <th class="border-top-0">Jenis Kendaraan</th>
                                                 <th class="border-top-0">Holder</th>
-                                                <th class="border-top-0"></th>
+                                                <th class="border-top-0">Tenggat 1 Thn</th>
+                                                <th class="border-top-0">Jatuh Hari (1 Thn)</th>
+                                                <th class="border-top-0">Tenggat 5 Thn</th>
+                                                <th class="border-top-0">Jatuh Hari (5 Thn)</th>
+                                                <th class="border-top-0">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>H 9854 NA</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
-                                            </tr>
+                                            <?php include('../functions/tableSTNK.php'); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -71,22 +66,21 @@
                         <div class="card">
                             <div class="card-body" id="cardServis">
                                 <div class="table-responsive">
-                                    <table class="table user-table no-wrap table-striped" id="tableServis">
+                                    <table class="table user-table no-wrap table-striped" id="tabelServis">
                                         <thead>
                                             <tr>
                                                 <th class="border-top-0">Nopol</th>
                                                 <th class="border-top-0">Jenis Kendaraan</th>
                                                 <th class="border-top-0">Holder</th>
-                                                <th class="border-top-0"></th>
+                                                <th class="border-top-0">KM Terbaru</th>
+                                                <th class="border-top-0">Servis pada KM</th>
+                                                <th class="border-top-0">Servis Selanjutnya</th>
+                                                <th class="border-top-0">Jatuh Hari Servis</th>
+                                                <th class="border-top-0">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>H 9854 NA</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
-                                            </tr>
+                                            <?php include('../functions/tableServis.php'); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -145,5 +139,5 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             
-<?php include("./templates/footer.php"); ?>
-<?php include("./templates/scriptTable.php") ?>
+<?php include("templates/footer.php"); ?>
+<?php include("templates/scriptTable.php") ?>
