@@ -86,6 +86,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- MODAL -->
+                        <?php include('../functions/modalServis.php'); ?>
                         <hr>
                         <h3>Import ke Database</h3>
                         <div class="card">
@@ -138,6 +140,9 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
+
+<!-- Script untuk modal -->
+<?php include("js/modal.js"); ?>
             
 <?php include("templates/footer.php"); ?>
-<?php include("templates/scriptTable.php") ?>
+<?php include("templates/scriptTable.php"); ?>

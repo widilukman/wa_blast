@@ -24,7 +24,7 @@ while ($row = $result->fetch_object()) {
     $tgl_5thn[$i] = new DateTime($row->tgl_stnk_5_thn);
     $selisih_5thn[$i] = date_diff($tgl_sekarang,$tgl_5thn[$i]);
     echo '<td>'.$selisih_5thn[$i]->format("%a hari").'</td>';
-    echo '<td>asdasd</td>';
+    echo '<td><button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Edit</button></td>';
     echo '<tr>';
     $i++;
 }
