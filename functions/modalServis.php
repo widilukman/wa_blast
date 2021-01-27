@@ -3,46 +3,36 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Info Servis</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" id="modalServis<?php echo $_POST['nopol'];?>">
-                <?php
-                #include our login information
-                require_once('db_login.php');
-                if(isset($_POST['nopol']))
-                #assign a query
-                $query = " SELECT * FROM invent_kendaraan WHERE nopol = '".$_POST['nopol']."'";
-                #execute query
-                $result = $db->query($query);
-                if (!$result) {
-                    die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query);
-                }
-                #fetch and display result
-                $row = mysqli_fetch_array($result);
-                    echo '<table>';
-                    echo '<tr><td>' . $row['nopol'] . '</td></tr>';
-                    echo '<tr><td>' . $row['jenis_kendaraan'] . '</td></tr>';
-                    echo '<tr><td>' . $row['holder'] . '</td></tr>';
-                    echo '<tr><td>' . $row['km_terbaru'] . '</td></tr>';
-                    echo '<tr><td>' . $row['servis_pada_km'] . '</td></tr>';
-                    echo '<tr><td>' . $row['tgl_servis_berikutnya'] . '</td></tr>';
-                    echo '</table>';
-
-                $result->free();
-                ?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+            <div class="modal-body" id="modalServis">
+                <form action="../functions/updateServis.php" method="POST">
+                    <input type="hidden" name="nopol" id="nopol">
+                    <div class="form-group">
+                        <label for="holder">Holder</label>
+                        <input type="text" class="form-control" name="holder" id="holder">
+                    </div>
+                    <div class="form-group">
+                        <label for="km_terbaru">KM Terbaru</label>
+                        <input type="text" class="form-control" name="km_terbaru" id="km_terbaru">
+                    </div>
+                    <div class="form-group">
+                        <label for="km_servis">Servis pada KM</label>
+                        <input type="text" class="form-control" name="servis_pada_km" id="km_servis">
+                    </div>
+                    <div class="form-group">
+                        <label for="servis_berikutnya">Tanggal Servis Selanjutnya</label>
+                        <input type="date" class="form-control" name="tgl_servis_berikutnya" id="servis_berikutnya">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="updateServis" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-<table>
-    <tr>
-        <td></td>
-    </tr>
-</table>

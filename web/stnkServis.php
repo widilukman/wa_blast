@@ -140,9 +140,9 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-
-<!-- Script untuk modal -->
-<?php include("js/modal.js"); ?>
             
 <?php include("templates/footer.php"); ?>
 <?php include("templates/scriptTable.php"); ?>
+
+<!-- Script untuk modal -->
+<script src="./js/modal.js"></script>
