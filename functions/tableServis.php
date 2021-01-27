@@ -31,7 +31,10 @@ while ($row = $result->fetch_object()) {
     data-servis_berikutnya="'.$row->tgl_servis_berikutnya.'"
     data-target="#staticBackdrop">Edit</button>
 
-    <a href="../functions/delete.php?nopol='.$row->nopol.'" name="hapus-servis" class="btn btn-danger hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></a>
+    <button class="btn btn-danger hapus"
+    data-nopol="'.$row->nopol.'" 
+    data-toggle="modal" 
+    data-target="#modal-hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></button>
     </td>';
     echo '<tr>';
     $i++;

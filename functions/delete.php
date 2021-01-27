@@ -1,9 +1,9 @@
 <?php
 require_once('db_login.php');
 
-if(isset($_GET['nopol'])){
-    $nopol = $_GET['nopol'];
-
+if(isset($_POST['hapusData'])){
+    $nopol = $_POST['nopol'];
+    var_dump($nopol);
     $query_delete = "DELETE FROM invent_kendaraan
                     WHERE nopol = '$nopol'";
     

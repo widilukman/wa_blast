@@ -88,6 +88,7 @@
                         </div>
                         <!-- MODAL -->
                         <?php include('../functions/modalServis.php'); ?>
+                        <?php include('../functions/modalHapus.php'); ?>
                         <hr>
                         <h3>Import ke Database</h3>
                         <div class="card">
