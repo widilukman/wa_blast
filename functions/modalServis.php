@@ -13,22 +13,22 @@
                     <input type="hidden" name="nopol" id="nopol">
                     <div class="form-group">
                         <label for="holder">Holder</label>
-                        <input type="text" class="form-control" name="holder" id="holder">
+                        <input type="text" class="form-control" name="holder" id="holder" required>
                     </div>
                     <div class="form-group">
                         <label for="km_terbaru">KM Terbaru</label>
-                        <input type="text" class="form-control" name="km_terbaru" id="km_terbaru">
+                        <input type="text" class="form-control" name="km_terbaru" id="km_terbaru" required>
                     </div>
                     <div class="form-group">
                         <label for="km_servis">Servis pada KM</label>
-                        <input type="text" class="form-control" name="servis_pada_km" id="km_servis">
+                        <input type="text" class="form-control" name="servis_pada_km" id="km_servis" required>
                     </div>
                     <div class="form-group">
                         <label for="servis_berikutnya">Tanggal Servis Selanjutnya</label>
-                        <input type="date" class="form-control" name="tgl_servis_berikutnya" id="servis_berikutnya">
+                        <input type="date" class="form-control" name="tgl_servis_berikutnya" id="servis_berikutnya" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         <button type="submit" name="updateServis" class="btn btn-info">Update</button>
                     </div>
                 </form>
