@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <!-- Custom CSS -->
+    <link href="../assets/plugins/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link href="css/style.min.css" rel="stylesheet">
 
     

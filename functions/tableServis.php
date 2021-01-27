@@ -31,7 +31,7 @@ while ($row = $result->fetch_object()) {
     data-servis_berikutnya="'.$row->tgl_servis_berikutnya.'"
     data-target="#staticBackdrop">Edit</button>
 
-    <a href="hapusServis.php?nopol='.$row->nopol.'" name="hapus-servis" class="btn btn-danger hapus">Hapus</a>
+    <a href="hapusServis.php?nopol='.$row->nopol.'" name="hapus-servis" class="btn btn-danger hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></a>
     </td>';
     echo '<tr>';
     $i++;
