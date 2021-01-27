@@ -20,10 +20,15 @@ if(isset($_POST['updateServis'])){
         die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_update_servis);
     }
     if($result_servis){
-        echo '<script>alert("Data Updated")</script>';
-        header("location:../web/stnkServis.php");
+        echo '<script type="text/javascript">';
+        echo 'alert("Data BERHASIL ter-update");';
+        echo 'window.location.href = "../web/stnkServis.php";';
+        echo '</script>';
     }else{
-        echo '<script>alert("Data NOT Updated")</script>';
+        echo '<script type="text/javascript">';
+        echo 'alert("Data GAGAL ter-update");';
+        echo 'window.location.href = "../web/stnkServis.php";';
+        echo '</script>';
     }
 }
 ?>
