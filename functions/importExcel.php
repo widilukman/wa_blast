@@ -31,10 +31,12 @@ if (isset($_POST['import'])) {
             $tgl_servis_terakhir    = $sheetData[$i]['7'];
             $servis_ke              = $sheetData[$i]['8'];
             $tgl_servis_berikutnya  = $sheetData[$i]['9'];
+            $km_terbaru             = $sheetData[$i]['10'];
+            $servis_pada_km         = $sheetData[$i]['11'];
             mysqli_query($db, "INSERT into invent_kendaraan (nopol, jenis_kendaraan, thn_kendaraan, holder, wilayah, tgl_stnk_1_thn, tgl_stnk_5_thn,
-                                            tgl_servis_terakhir, servis_ke, tgl_servis_berikutnya) 
+                                            tgl_servis_terakhir, servis_ke, tgl_servis_berikutnya, km_terbaru, servis_pada_km) 
                                 VALUES ('$nopol','$jenis_kendaraan','$thn_kendaraan','$holder','$wilayah','$tgl_stnk_1_thn', '$tgl_stnk_5_thn',
-                                        '$tgl_servis_terakhir', '$servis_ke', '$tgl_servis_berikutnya')");
+                                        '$tgl_servis_terakhir', '$servis_ke', '$tgl_servis_berikutnya', '$km_terbaru', '$servis_pada_km')");
         }
         echo "<b style='color :red;'>Data berhasil diimport!</b>";
     }
