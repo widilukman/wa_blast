@@ -24,7 +24,19 @@ while ($row = $result->fetch_object()) {
     $tgl_5thn[$i] = new DateTime($row->tgl_stnk_5_thn);
     $selisih_5thn[$i] = date_diff($tgl_sekarang,$tgl_5thn[$i]);
     echo '<td>'.$selisih_5thn[$i]->format("%a hari").'</td>';
-    echo '<td><button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Edit</button></td>';
+    echo '<td>
+    <button class="btn btn-warning edit-stnk" data-toggle="modal"
+    data-nopol-stnk="'.$row->nopol.'" 
+    data-holder-stnk="'.$row->holder.'"
+    data-tgl_1thn="'.$row->tgl_stnk_1_thn.'"
+    data-tgl_5thn="'.$row->tgl_stnk_5_thn.'"
+    data-target="#modal-edit-stnk">Edit</button>
+
+    <button class="btn btn-danger hapus"
+    data-nopol="'.$row->nopol.'" 
+    data-toggle="modal" 
+    data-target="#modal-hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></button>
+    </td>';
     echo '<tr>';
     $i++;
 }

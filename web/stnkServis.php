@@ -41,7 +41,7 @@
                         <div class="card">
                             <div class="card-body" id="cardSTNK">
                                 <div class="table-responsive">
-                                    <table class="table user-table no-wrap table-striped" id="TableSTNK">
+                                    <table class="table user-table no-wrap table-striped" id="tabelSTNK">
                                         <thead>
                                             <tr>
                                                 <th class="border-top-0">Nopol</th>
@@ -87,8 +87,10 @@
                             </div>
                         </div>
                         <!-- MODAL -->
+                        <?php include('../functions/modalSTNK.php'); ?>
                         <?php include('../functions/modalServis.php'); ?>
                         <?php include('../functions/modalHapus.php'); ?>
+                        <!-- MODAL -->
                         <hr>
                         <h3>Import ke Database</h3>
                         <div class="card">
@@ -146,4 +148,6 @@
 <?php include("templates/scriptTable.php"); ?>
 
 <!-- Script untuk modal -->
-<script src="./js/modal.js"></script>
+<script type="text/javascript" src="./js/modal.js"></script>
+<!-- Data Table -->
+<script type="text/javascript" src="./js/dataTables.js"></script>

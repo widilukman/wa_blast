@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var table = $('#tableSTNK').DataTable({
+    var table = $('#tabelSTNK').DataTable({
         lengthChange: false,
         buttons: [ 'excel', 'colvis' ]
     } );

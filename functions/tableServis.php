@@ -24,12 +24,12 @@ while ($row = $result->fetch_object()) {
     echo '<td>'.$selisih_servis[$i]->format("%a hari").'</td>';
     echo '<td>
     <button class="btn btn-warning edit-servis" data-toggle="modal"
-    data-nopol="'.$row->nopol.'" 
-    data-holder="'.$row->holder.'"
+    data-nopol_servis="'.$row->nopol.'" 
+    data-holder_servis="'.$row->holder.'"
     data-km_terbaru="'.$row->km_terbaru.'"
     data-km_servis="'.$row->servis_pada_km.'"
     data-servis_berikutnya="'.$row->tgl_servis_berikutnya.'"
-    data-target="#staticBackdrop">Edit</button>
+    data-target="#modal-edit-servis">Edit</button>
 
     <button class="btn btn-danger hapus"
     data-nopol="'.$row->nopol.'" 

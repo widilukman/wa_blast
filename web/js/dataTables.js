@@ -9,7 +9,7 @@ $(document).ready(function() {
 } );
 
 $(document).ready(function() {
-    var table = $('#tabelServis').DataTable({
+    var table = $('#TabelServis').DataTable({
         lengthChange: false,
         buttons: [ 'excel', 'colvis' ]
     } );

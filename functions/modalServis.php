@@ -1,19 +1,19 @@
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal-edit-servis" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalServisLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Edit Info Servis</h5>
+                <h5 class="modal-title" id="modalServisLabel">Edit Info Servis</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" id="modalServis">
+            <div class="modal-body Servis" id="modalServis">
                 <form action="../functions/updateServis.php" method="POST">
-                    <input type="hidden" name="nopol" id="nopol">
+                    <input type="hidden" name="nopol" id="nopol-servis">
                     <div class="form-group">
-                        <label for="holder">Holder</label>
-                        <input type="text" class="form-control" name="holder" id="holder" required>
+                        <label for="holder-servis">Holder</label>
+                        <input type="text" class="form-control" name="holder" id="holder-servis" required>
                     </div>
                     <div class="form-group">
                         <label for="km_terbaru">KM Terbaru</label>
