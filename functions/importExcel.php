@@ -38,7 +38,10 @@ if (isset($_POST['import'])) {
                                 VALUES ('$nopol','$jenis_kendaraan','$thn_kendaraan','$holder','$wilayah','$tgl_stnk_1_thn', '$tgl_stnk_5_thn',
                                         '$tgl_servis_terakhir', '$servis_ke', '$tgl_servis_berikutnya', '$km_terbaru', '$servis_pada_km')");
         }
-        echo "<b style='color :red;'>Data berhasil diimport!</b>";
+        echo '<script type="text/javascript">';
+        echo 'alert("Data BERHASIL di-import");';
+        echo 'window.location.href = "../web/stnkServis.php";';
+        echo '</script>';
     }
 }
 ?>
