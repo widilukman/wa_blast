@@ -1,3 +1,49 @@
+<?php
+session_start(); //inisialisasi session
+require_once('../functions/db_login.php');
+
+//cek apakah user sudah submit login
+if (isset($_POST['login'])) {
+    $valid = TRUE; //flag
+    //cek validasi email
+    $username = test_input($_POST['kode']);
+    if ($username == '') {
+        $error_username = "username is required";
+        $valid = FALSE;
+    }
+
+    //cek validasi password
+    $password = test_input($_POST['password']);
+    if ($password == "") {
+        $error_password = "password is required";
+        $valid = FALSE;
+    }
+
+    //cek validasi
+    if ($valid) {
+        //asign query
+        $query_user = " SELECT * FROM user WHERE kode='" . $username . "' AND password='" . md5($password) . "' ";
+        //execute query
+        $result = $db->query($query_user);
+        if (!$result) {
+            die('could not querry the databases: <br>' . $db->error);
+        } else {
+            if ($result->num_rows > 0) {   //login berhasil
+                $row = $result->fetch_object();
+                $_SESSION['nama'] = $row->nama;
+                header('location: index.php');
+                exit;
+            } else {   //login gagal
+                $error_email = 'Kombinasi username dan password salah';
+                $error_password = 'Kombinasi username dan password salah';
+            }
+        }
+        //close db connection
+        $db->close();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,16 +79,18 @@
                                 <img src="../assets/images/logo-text.png" alt="logo" class="logo">
                             </div>
                             <p class="login-card-description">Sign into your account</p>
-                            <form method="" action="">
-                                <div class="form-group">
+                            <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+                                <div class="form-group <?php if (isset($error_username)) echo "is-invalid"; ?>" >
                                     <label for="username" class="sr-only">Username</label>
-                                    <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                                    <input type="text" value="<?php if (isset($username)) echo $username; ?>" name="kode" id="username" class="form-control" placeholder="Username">
+                                    <span><?php if (isset($error_username)) echo $error_username; ?></span>
                                 </div>
-                                <div class="form-group mb-4">
+                                <div class="form-group mb-4 <?php if (isset($error_password)) echo "is-invalid"; ?>">
                                     <label for="password" class="sr-only">Password</label>
                                     <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                                    <span><?php if (isset($error_password)) echo $error_password; ?></span>
                                 </div>
-                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+                                <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4" value="login">
                             </form>
                         </div>
                     </div>

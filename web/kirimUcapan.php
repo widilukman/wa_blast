@@ -1,4 +1,12 @@
 <?php
+session_start(); //insisalisasi session
+if (!isset($_SESSION['nama'])) {
+    header('Location: login.php');
+}else{
+    $nama = $_SESSION['nama'];
+}
+?>
+<?php
     require_once('../functions/db_login.php');
 ?>
 

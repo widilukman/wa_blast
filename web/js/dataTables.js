@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var table = $('#TabelSTNK').DataTable({
+    var table = $('#tabelSTNK').DataTable({
         lengthChange: false,
         buttons: [ 'excel', 'colvis' ]
     } );
@@ -9,7 +9,7 @@ $(document).ready(function() {
 } );
 
 $(document).ready(function() {
-    var table = $('#TabelServis').DataTable({
+    var table = $('#tabelServis').DataTable({
         lengthChange: false,
         buttons: [ 'excel', 'colvis' ]
     } );

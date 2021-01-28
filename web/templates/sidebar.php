@@ -21,7 +21,7 @@
                         href="stnkServis.php" aria-expanded="false"><i class="mr-3 fas fa-calendar-alt"
                             aria-hidden="true"></i><span class="hide-menu">STNK/Servis</span></a></li>
                 <li class="text-center p-20 upgrade-btn">
-                    <a href=""
+                    <a href="../functions/logout.php"
                         class="btn btn-danger text-white mt-4">Logout</a>
                 </li>
             </ul>

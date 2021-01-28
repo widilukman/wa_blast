@@ -10,7 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <!-- Custom CSS -->
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Data Table CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.css">
@@ -78,7 +79,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item">
                             <b class="nav-link" href="" data-toggle="dropdown"
-                                aria-haspopup="false" aria-expanded="false">Lukman</b>
+                                aria-haspopup="false" aria-expanded="false"><?= $nama; ?></b>
                         </li>
                     </ul>
                 </div>

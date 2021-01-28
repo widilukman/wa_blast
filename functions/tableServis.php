@@ -32,11 +32,11 @@ while ($row = $result->fetch_object()) {
     data-target="#modal-edit-servis">Edit</button>
 
     <button class="btn btn-danger hapus"
-    data-nopol="'.$row->nopol.'" 
+    data-nopol-servis="'.$row->nopol.'" 
     data-toggle="modal" 
     data-target="#modal-hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></button>
     </td>';
-    echo '<tr>';
+    echo '</tr>';
     $i++;
     
 }

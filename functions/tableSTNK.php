@@ -37,7 +37,7 @@ while ($row = $result->fetch_object()) {
     data-toggle="modal" 
     data-target="#modal-hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></button>
     </td>';
-    echo '<tr>';
+    echo '</tr>';
     $i++;
 }
 

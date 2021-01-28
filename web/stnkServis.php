@@ -1,3 +1,12 @@
+<?php
+session_start(); //insisalisasi session
+if (!isset($_SESSION['nama'])) {
+    header('Location: login.php');
+}else{
+    $nama = $_SESSION['nama'];
+}
+?>
+
 <?php $title = "STNK/Servis | WA Blast"; ?>
 <?php include("templates/header.php"); ?>
 <?php include("templates/sidebar.php"); ?>
@@ -39,9 +48,9 @@
                     <div class="col">
                         <h3>Jatuh Tempo STNK</h3>
                         <div class="card">
-                            <div class="card-body" id="cardSTNK">
+                            <div class="card-body" id="card-stnk">
                                 <div class="table-responsive">
-                                    <table class="table user-table no-wrap table-striped" id="tabelSTNK">
+                                    <table class="table user-table no-wrap table-striped" id="tabel-stnk">
                                         <thead>
                                             <tr>
                                                 <th class="border-top-0">Nopol</th>
@@ -64,9 +73,9 @@
                         <hr>
                         <h3>Jatuh Tempo Servis Kendaraan</h3>
                         <div class="card">
-                            <div class="card-body" id="cardServis">
+                            <div class="card-body" id="card-servis">
                                 <div class="table-responsive">
-                                    <table class="table user-table no-wrap table-striped" id="tabelServis">
+                                    <table class="table user-table no-wrap table-striped" id="tabel-servis">
                                         <thead>
                                             <tr>
                                                 <th class="border-top-0">Nopol</th>
@@ -145,9 +154,20 @@
             <!-- ============================================================== -->
             
 <?php include("templates/footer.php"); ?>
-<?php include("templates/scriptTable.php"); ?>
 
+<!-- CDN Data Table -->
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js"></script>
+
+<!-- Data Table -->
+<script src="./js/dataTabel.js"></script>
 <!-- Script untuk modal -->
 <script type="text/javascript" src="./js/modal.js"></script>
-<!-- Data Table -->
-<script type="text/javascript" src="./js/dataTables.js"></script>
