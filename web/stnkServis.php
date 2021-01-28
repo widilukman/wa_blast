@@ -50,7 +50,7 @@ if (!isset($_SESSION['nama'])) {
                         <div class="card">
                             <div class="card-body" id="card-stnk">
                                 <div class="table-responsive">
-                                    <table class="table user-table no-wrap table-striped" id="tabel-stnk">
+                                    <table class="table user-table no-wrap table-striped table-bordered" id="tabel-stnk">
                                         <thead>
                                             <tr>
                                                 <th class="border-top-0">Nopol</th>
@@ -75,7 +75,7 @@ if (!isset($_SESSION['nama'])) {
                         <div class="card">
                             <div class="card-body" id="card-servis">
                                 <div class="table-responsive">
-                                    <table class="table user-table no-wrap table-striped" id="tabel-servis">
+                                    <table class="table user-table no-wrap table-striped table-bordered" id="tabel-servis">
                                         <thead>
                                             <tr>
                                                 <th class="border-top-0">Nopol</th>
