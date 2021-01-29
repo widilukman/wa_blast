@@ -8,14 +8,14 @@ if (isset($_POST['login'])) {
     //cek validasi email
     $username = test_input($_POST['kode']);
     if ($username == '') {
-        $error_username = "username is required";
+        $error_username = "username harus diisi";
         $valid = FALSE;
     }
 
     //cek validasi password
     $password = test_input($_POST['password']);
     if ($password == "") {
-        $error_password = "password is required";
+        $error_password = "password harus diisi";
         $valid = FALSE;
     }
 
@@ -34,8 +34,8 @@ if (isset($_POST['login'])) {
                 header('location: index.php');
                 exit;
             } else {   //login gagal
-                $error_email = 'Kombinasi username dan password salah';
-                $error_password = 'Kombinasi username dan password salah';
+                $error_email = 'kombinasi username dan password salah';
+                $error_password = 'kombinasi username dan password salah';
             }
         }
         //close db connection
@@ -83,12 +83,12 @@ if (isset($_POST['login'])) {
                                 <div class="form-group <?php if (isset($error_username)) echo "is-invalid"; ?>" >
                                     <label for="username" class="sr-only">Username</label>
                                     <input type="text" value="<?php if (isset($username)) echo $username; ?>" name="kode" id="username" class="form-control" placeholder="Username">
-                                    <span><?php if (isset($error_username)) echo $error_username; ?></span>
+                                    <span style="color:red"><?php if (isset($error_username)) echo $error_username; ?></span>
                                 </div>
                                 <div class="form-group mb-4 <?php if (isset($error_password)) echo "is-invalid"; ?>">
                                     <label for="password" class="sr-only">Password</label>
                                     <input type="password" name="password" id="password" class="form-control" placeholder="***********">
-                                    <span><?php if (isset($error_password)) echo $error_password; ?></span>
+                                    <span style="color:red"><?php if (isset($error_password)) echo $error_password; ?></span>
                                 </div>
                                 <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4" value="login">
                             </form>
