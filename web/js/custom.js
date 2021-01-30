@@ -34,18 +34,9 @@ $(function() {
 
 });
 
-$(document).ready(function() {
-    var table = $('#tableSTNK').DataTable({
-        lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
-    } );
-
-    table.buttons().container()
-        .appendTo( '#cardSTNK .col-md-6:eq(0)' );
-} );
-
-$(document).ready(function() {
-    $('#tableServis').DataTable({
-        
-    });
-} );
+//datepicker
+$("#tahun-kendaraan").datepicker({
+    format: "yyyy",
+    startView: "years", 
+    minViewMode: "years"
+});

@@ -18,9 +18,13 @@
                     <br>
                     <br>
                     <br>
-                    <div class="d-flex justify-content-sm-around">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        <button type="submit" name="hapusData" class="btn btn-danger">Hapus</button>
+                    <div class="d-flex justify-content-center">
+                        <div class="col d-flex justify-content-end mr-4">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        </div>
+                        <div class="col">
+                            <button type="submit" name="hapusData" class="btn btn-danger">Hapus</button>
+                        </div>
                     </div>
                 </form>
             </div>

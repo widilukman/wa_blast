@@ -44,6 +44,14 @@ if (!isset($_SESSION['nama'])) {
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
+                    <div class="col">
+                        <div class="d-flex justify-content-end mr-4">
+                            <button class="btn btn-info" data-toggle="modal" data-target="#modal-tambah-data">
+                            <i class="mr-3 fas fa-plus-circle" aria-hidden="true"></i>Tambah Data</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <!-- column -->
                     <div class="col">
                         <h3>Jatuh Tempo STNK</h3>
@@ -96,6 +104,7 @@ if (!isset($_SESSION['nama'])) {
                             </div>
                         </div>
                         <!-- MODAL -->
+                        <?php include('../functions/modalTambah.php'); ?>
                         <?php include('../functions/modalSTNK.php'); ?>
                         <?php include('../functions/modalServis.php'); ?>
                         <?php include('../functions/modalHapus.php'); ?>

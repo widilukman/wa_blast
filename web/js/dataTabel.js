@@ -7,7 +7,8 @@ $(document).ready(function() {
                 columns: ':visible'
             }
         }, 
-        'colvis']
+        'colvis'],
+        "pageLength": 5
     } );
 
     table.buttons().container()
@@ -23,7 +24,8 @@ $(document).ready(function() {
                 columns: ':visible'
             }
         }, 
-        'colvis']
+        'colvis'],
+        "pageLength": 5
     } );
 
     table.buttons().container()

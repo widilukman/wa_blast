@@ -74,7 +74,7 @@ if (!isset($_SESSION['nama'])) {
                                         <input type="text" class="form-control" id="basic-url" placeholder="https://example.com" required>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-info col-2 mt-4">Kirim</button>
+                                        <button type="submit" class="btn btn-info col-2 mt-4">Kirim Pesan</button>
                                     </div>
                                 </form>
                             </div>
