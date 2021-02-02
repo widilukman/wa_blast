@@ -46,7 +46,7 @@ if (!isset($_SESSION['nama'])) {
                 <div class="row">
                     <div class="col">
                         <div class="d-flex justify-content-end mr-4">
-                            <button class="btn btn-info" data-toggle="modal" data-target="#modal-tambah-data">
+                            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-tambah-data">
                             <i class="mr-3 fas fa-plus-circle" aria-hidden="true"></i>Tambah Data</button>
                         </div>
                     </div>
@@ -90,7 +90,8 @@ if (!isset($_SESSION['nama'])) {
                                                 <th class="border-top-0">Jenis Kendaraan</th>
                                                 <th class="border-top-0">Holder</th>
                                                 <th class="border-top-0">KM Terbaru</th>
-                                                <th class="border-top-0">Servis pada KM</th>
+                                                <th class="border-top-0">KM Servis</th>
+                                                <th class="border-top-0">Servis Terakhir</th>
                                                 <th class="border-top-0">Servis Selanjutnya</th>
                                                 <th class="border-top-0">Jatuh Hari Servis</th>
                                                 <th class="border-top-0">Actions</th>

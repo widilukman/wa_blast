@@ -35,7 +35,7 @@ while ($row = $result->fetch_object()) {
     <button class="btn btn-danger hapus"
     data-nopol="'.$row->nopol.'" 
     data-toggle="modal" 
-    data-target="#modal-hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></button>
+    data-target="#modal-hapus"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
     </td>';
     echo '</tr>';
     $i++;

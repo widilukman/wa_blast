@@ -6,12 +6,14 @@ $(document).ready(function() {
         var holderServis = $(this).data('holder_servis');
         var km_terbaru = $(this).data('km_terbaru');
         var km_servis = $(this).data('km_servis');
+        var servis_terakhir = $(this).data('servis_terakhir');
         var servis_berikutnya = $(this).data('servis_berikutnya');
         
         $(".Servis #nopol-servis").val(nopolServis);
         $(".Servis #holder-servis").val(holderServis);
         $(".Servis #km_terbaru").val(km_terbaru);
         $(".Servis #km_servis").val(km_servis);
+        $(".Servis #servis_terakhir").val(servis_terakhir);
         $(".Servis #servis_berikutnya").val(servis_berikutnya);
     });
 })

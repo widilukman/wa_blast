@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="holder-tambah">Holder</label>
-                        <input type="text" class="form-control" name="holder" id="holder-tambah" required>
+                        <input type="text" class="form-control" name="holder-tambah" id="holder-tambah" required>
                     </div>
                     <div class="form-group">
                         <label for="wilayah">Wilayah</label>
@@ -39,24 +39,24 @@
                         <input type="date" class="form-control" name="tgl_stnk_5_thn" id="stnk-5thn" required>
                     </div>
                     <div class="form-group">
-                        <label for="servis-terakhir">Tanggal Servis Terakhir</label>
-                        <input type="date" class="form-control" name="tgl_servis_terakhir" id="servis-terakhir" required>
+                        <label for="servis-terakhir-tambah">Tanggal Servis Terakhir</label>
+                        <input type="date" class="form-control" name="tgl_servis_terakhir" id="servis-terakhir-tambah" required>
                     </div>
                     <div class="form-group">
                         <label for="servis-ke">Servis Ke-</label>
-                        <input type="text" class="form-control" name="servis_ke" id="servis-ke" required>
+                        <input type="number" class="form-control" name="servis_ke" id="servis-ke" required>
                     </div>
                     <div class="form-group">
-                        <label for="km_terbaru">KM Terbaru</label>
-                        <input type="text" class="form-control" name="km_terbaru" id="km_terbaru" required>
+                        <label for="km_terbaru_tambah">KM Terbaru</label>
+                        <input type="number" class="form-control" name="km_terbaru" id="km_terbaru_tambah" required>
                     </div>
                     <div class="form-group">
-                        <label for="km_servis">Servis pada KM</label>
-                        <input type="text" class="form-control" name="servis_pada_km" id="km_servis" required>
+                        <label for="km_servis_tambah">Servis pada KM</label>
+                        <input type="number" class="form-control" name="servis_pada_km" id="km_servis_tambah" required>
                     </div>
                     <div class="form-group">
-                        <label for="servis_berikutnya">Tanggal Servis Selanjutnya</label>
-                        <input type="date" class="form-control" name="tgl_servis_berikutnya" id="servis_berikutnya" required>
+                        <label for="servis_berikutnya_tambah">Tanggal Servis Selanjutnya</label>
+                        <input type="date" class="form-control" name="tgl_servis_berikutnya" id="servis_berikutnya_tambah" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

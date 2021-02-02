@@ -5,7 +5,7 @@ if(isset($_POST['tambahData'])){
     $nopol = $_POST['nopol'];
     $jenis_kendaraan = $_POST['jenis_kendaraan'];
     $thn_kendaraan = $_POST['thn_kendaraan'];
-    $holder = $_POST['holder'];
+    $holder = $_POST['holder-tambah'];
     $wilayah = $_POST['wilayah'];
     $tenggat_1thn = $_POST['tgl_stnk_1_thn'];
     $tenggat_5thn = $_POST['tgl_stnk_5_thn'];
@@ -17,7 +17,7 @@ if(isset($_POST['tambahData'])){
 
     $query_tambah_data = "INSERT INTO invent_kendaraan
                             (nopol, jenis_kendaraan, thn_kendaraan, holder, wilayah, tgl_stnk_1_thn, tgl_stnk_5_thn,
-                            tgl_servis_terakhir, servis_ke, servis_pada_km, tgl_servis_berikutnya, tgl_input_data)
+                            tgl_servis_terakhir, servis_ke, km_terbaru, servis_pada_km, tgl_servis_berikutnya)
                             VALUES ('$nopol', '$jenis_kendaraan', '$thn_kendaraan', '$holder', '$wilayah', '$tenggat_1thn',
                             '$tenggat_5thn', '$tgl_servis_terakhir', '$servis_ke', '$km_terbaru', '$km_servis', '$servis_berikutnya')";
     

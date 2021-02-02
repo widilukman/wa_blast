@@ -18,6 +18,7 @@ while ($row = $result->fetch_object()) {
     echo '<td>'.$row->holder.'</td>';
     echo '<td>'.$row->km_terbaru.'</td>';
     echo '<td>'.$row->servis_pada_km.'</td>';
+    echo '<td>'.$row->tgl_servis_terakhir.'</td>';
     echo '<td>'.$row->tgl_servis_berikutnya.'</td>';
     $tgl_servis[$i] = new DateTime($row->tgl_servis_berikutnya);
     $selisih_servis[$i] = date_diff($tgl_sekarang,$tgl_servis[$i]);
@@ -28,13 +29,14 @@ while ($row = $result->fetch_object()) {
     data-holder_servis="'.$row->holder.'"
     data-km_terbaru="'.$row->km_terbaru.'"
     data-km_servis="'.$row->servis_pada_km.'"
+    data-servis_terakhir="'.$row->tgl_servis_terakhir.'"
     data-servis_berikutnya="'.$row->tgl_servis_berikutnya.'"
     data-target="#modal-edit-servis">Edit</button>
 
     <button class="btn btn-danger hapus"
-    data-nopol-servis="'.$row->nopol.'" 
+    data-nopol="'.$row->nopol.'" 
     data-toggle="modal" 
-    data-target="#modal-hapus"><i class="mr-1 fas fa-trash-alt" aria-hidden="true"></i></button>
+    data-target="#modal-hapus"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
     </td>';
     echo '</tr>';
     $i++;

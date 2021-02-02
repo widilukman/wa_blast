@@ -12,7 +12,7 @@
                 <form action="../functions/delete.php" method="POST">
                     <input type="hidden" name="nopol" id="nopolHapus">
                     <div class="d-flex justify-content-center">
-                        <h5>Apakah anda yakin akan menghapus data ini?</h5>
+                        <p style="font-size: medium;">Apakah anda yakin akan menghapus data ini?</p>
                     </div>
                     <br>
                     <br>

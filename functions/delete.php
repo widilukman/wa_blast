@@ -13,12 +13,12 @@ if(isset($_POST['hapusData'])){
     }
     if($result_delete){
         echo '<script type="text/javascript">';
-        echo 'alert("Data BERHASIL dihapus");';
+        echo 'alert("DATA BERHASIL DIHAPUS");';
         echo 'window.location.href = "../web/stnkServis.php";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("Data GAGAL dihapus");';
+        echo 'alert("DATA GAGAL DIHAPUS");';
         echo 'window.location.href = "../web/stnkServis.php";';
         echo '</script>';
     }

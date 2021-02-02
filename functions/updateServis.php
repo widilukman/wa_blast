@@ -5,6 +5,7 @@ if(isset($_POST['updateServis'])){
     $nopol = $_POST['nopol'];
     $holder = $_POST['holder'];
     $km_terbaru = $_POST['km_terbaru'];
+    $servis_terakhir = $_POST['tgl_servis_terakhir'];
     $km_servis = $_POST['servis_pada_km'];
     $servis_berikutnya = $_POST['tgl_servis_berikutnya'];
 
@@ -12,6 +13,7 @@ if(isset($_POST['updateServis'])){
                             holder = '$holder',
                             km_terbaru = '$km_terbaru',
                             servis_pada_km = '$km_servis',
+                            tgl_servis_terakhir = '$servis_terakhir',
                             tgl_servis_berikutnya = '$servis_berikutnya'
                             WHERE nopol = '$nopol'";
     
@@ -21,12 +23,12 @@ if(isset($_POST['updateServis'])){
     }
     if($result_servis){
         echo '<script type="text/javascript">';
-        echo 'alert("Data BERHASIL ter-update");';
+        echo 'alert("DATA BERHASIL DI-UPDATE");';
         echo 'window.location.href = "../web/stnkServis.php";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("Data GAGAL ter-update");';
+        echo 'alert("DATA GAGAL DI-UPDATE");';
         echo 'window.location.href = "../web/stnkServis.php";';
         echo '</script>';
     }

@@ -17,11 +17,15 @@
                     </div>
                     <div class="form-group">
                         <label for="km_terbaru">KM Terbaru</label>
-                        <input type="text" class="form-control" name="km_terbaru" id="km_terbaru" required>
+                        <input type="number" class="form-control" name="km_terbaru" id="km_terbaru" required>
                     </div>
                     <div class="form-group">
                         <label for="km_servis">Servis pada KM</label>
-                        <input type="text" class="form-control" name="servis_pada_km" id="km_servis" required>
+                        <input type="number" class="form-control" name="servis_pada_km" id="km_servis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="servis_terakhir">Tanggal Servis Terakhir</label>
+                        <input type="date" class="form-control" name="tgl_servis_terakhir" id="servis_terakhir" required>
                     </div>
                     <div class="form-group">
                         <label for="servis_berikutnya">Tanggal Servis Selanjutnya</label>
