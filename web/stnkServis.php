@@ -105,10 +105,10 @@ if (!isset($_SESSION['nama'])) {
                             </div>
                         </div>
                         <!-- MODAL -->
-                        <?php include('../functions/modalTambah.php'); ?>
-                        <?php include('../functions/modalSTNK.php'); ?>
-                        <?php include('../functions/modalServis.php'); ?>
-                        <?php include('../functions/modalHapus.php'); ?>
+                        <?php include('modalTambah.php'); ?>
+                        <?php include('modalSTNK.php'); ?>
+                        <?php include('modalServis.php'); ?>
+                        <?php include('modalHapus.php'); ?>
                         <!-- MODAL -->
                         <hr>
                         <h3>Import ke Database</h3>

@@ -2,7 +2,7 @@
 #include our login information
 require_once('db_login.php');
 #assign a query
-$query = " SELECT * FROM invent_kendaraan";
+$query = " SELECT * FROM invent_kendaraan ORDER BY tgl_servis_berikutnya";
 #execute query
 $result = $db->query($query);
 if (!$result) {

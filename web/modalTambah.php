@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTambahLabel">Tambah Data</h5>
+                <h5 class="modal-title" id="modalTambahLabel">Tambah Data Kendaraan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,15 +12,15 @@
                 <form action="../functions/tambahData.php" method="POST">
                     <div class="form-group">
                         <label for="nopol-tambah">Nopol</label>
-                        <input type="text" class="form-control" name="nopol" id="nopol-tambah">
+                        <input type="text" class="form-control" name="nopol" id="nopol-tambah" required>
                     </div>
                     <div class="form-group">
                         <label for="jenis-kendaraan">Jenis Kendaraan</label>
-                        <input type="text" class="form-control" name="jenis_kendaraan" id="jenis-kendaraan">
+                        <input type="text" class="form-control" name="jenis_kendaraan" id="jenis-kendaraan" required>
                     </div>
                     <div class="form-group">
                         <label for="tahun-kendaraan">Tahun Kendaraan</label>
-                        <input type="text" class="form-control" name="thn_kendaraan" id="tahun-kendaraan">
+                        <input type="text" class="form-control" name="thn_kendaraan" id="tahun-kendaraan" required>
                     </div>
                     <div class="form-group">
                         <label for="holder-tambah">Holder</label>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="wilayah">Wilayah</label>
-                        <input type="text" class="form-control" name="wilayah" id="wilayah">
+                        <input type="text" class="form-control" name="wilayah" id="wilayah" required>
                     </div>
                     <div class="form-group">
                         <label for="stnk-1thn">Tenggat STNK 1 Tahun</label>
