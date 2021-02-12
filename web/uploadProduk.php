@@ -51,9 +51,8 @@ require_once('../functions/db_login.php');
             <div class="col-12">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-link active" id="nav-broadcast-tab" data-toggle="tab" href="#nav-broadcast" role="tab" aria-controls="nav-broadcast" aria-selected="true">Broadcast Pesan</a>
+                        <a class="nav-link active" id="nav-broadcast-tab" data-toggle="tab" href="#nav-broadcast" role="tab" aria-controls="nav-broadcast" aria-selected="true">Broadcast Produk</a>
                         <a class="nav-link" id="nav-terkirim-tab" data-toggle="tab" href="#nav-terkirim" role="tab" aria-controls="nav-terkirim" aria-selected="false">Pesan Terkirim</a>
-                        <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
                     </div>
                 </nav>
                 <div class="card">
@@ -65,7 +64,7 @@ require_once('../functions/db_login.php');
                                         <label for="setting-wa">
                                             <h4>Setting WA</h4><b>Pilih API KEY :</b>
                                         </label>
-                                        <select class="custom-select" name="selectedApi" id="selectApi" onchange="selectApi()">
+                                        <select class="custom-select" name="selectedApi" id="selectApiProduk" onchange="selectApi()">
                                             <?php include('../functions/pilihAPI.php'); ?>
                                         </select>
                                     </div>
@@ -118,7 +117,7 @@ require_once('../functions/db_login.php');
                                             echo
                                             '<tr>
                                                 <td style="text-align: center;"><img class="img-fluid" src="../assets/product/'.$row_terkirim->foto.'"></td>
-                                                <td style="text-overflow: ellipsis; overflow : hidden; white-space : nowrap;">' . $row_terkirim->deskripsi . '</td>    
+                                                <td style="text-overflow: ellipsis; overflow : hidden; white-space : nowrap; min-width: 15%;">' . $row_terkirim->deskripsi . '</td>    
                                                 <td>' . $row_terkirim->no_tujuan . '</td>
                                                 <td>' . $row_terkirim->tgl_input_produk . '</td>    
                                             </tr>';
@@ -127,7 +126,6 @@ require_once('../functions/db_login.php');
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Lorem</div>
                         </div>
                     </div>
                 </div>
@@ -151,7 +149,7 @@ require_once('../functions/db_login.php');
     <!-- script pilih API KEY -->
     <script>
         function selectApi() {
-            document.getElementById("selectApi").value;
+            document.getElementById("selectApiProduk").value;
         }
     </script>
 

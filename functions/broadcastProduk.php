@@ -22,7 +22,7 @@ if (isset($_POST["uploadProduk"])) {
         $my_apikey = $_POST['selectedApi'];
         $destination[$i] = $row_cust->no_telepon;
         //Pesan Gambar
-        $message = "https://n2.sdlcdn.com/imgs/a/a/1/Chromozome_Yamaha_102025_m_1_2x-4ab77.jpg"; //GAMBAR MASIH DARI GOOGLE!!!
+        $message = "https://n2.sdlcdn.com/imgs/a/a/1/Chromozome_Yamaha_102025_m_1_2x-4ab77.jpg"; //LINK GAMBAR MASIH DARI GOOGLE!!!
         $api_url = "http://panel.rapiwha.com/send_message.php";
         $api_url .= "?apikey=" . urlencode($my_apikey);
         $api_url .= "&number=" . urlencode($destination[$i]);

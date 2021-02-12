@@ -2,11 +2,11 @@
 #include our login information
 require_once('db_login.php');
 #assign a query
-$query = " SELECT * FROM invent_kendaraan";
+$query_stnk = "SELECT * FROM invent_kendaraan ORDER BY tgl_stnk_1_thn";
 #execute query
-$result = $db->query($query);
+$result = $db->query($query_stnk);
 if (!$result) {
-    die ("Could not query the database: <br>".$db->error."<br>Query: ".$query);
+    die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_stnk);
 }
 #fetch and display result
 $tgl_sekarang = new DateTime();
