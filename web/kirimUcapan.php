@@ -132,7 +132,7 @@ require_once('../functions/db_login.php');
                                     </div>
                                     <button type="submit" name="updateTemplate" class="btn btn-warning">Update Template</button>
                                     <div class="d-flex justify-content-center">
-                                        <button type="submit" name="broadcastUcapan" class="btn btn-info col-2 mt-4">Kirim Pesan</button>
+                                        <button type="submit" name="broadcastUcapan" class="btn btn-info mt-4">Kirim Pesan</button>
                                     </div>
                                 </form>
                             </div>

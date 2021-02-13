@@ -90,7 +90,7 @@ require_once('../functions/db_login.php');
                                         <textarea class="form-control" name="deskripsi" id="deskripsiProduk" cols="30" rows="10" required></textarea>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button type="submit" name="uploadProduk" class="btn btn-info col-2 mt-4">Kirim Pesan</button>
+                                        <button type="submit" name="uploadProduk" class="btn btn-info mt-4">Kirim Pesan</button>
                                     </div>
                                 </form>
                             </div>
