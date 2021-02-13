@@ -57,6 +57,14 @@ if(isset($_POST['broadcastUcapan'])){
         $message = $ucapan;
         $api_url .= "&text=" . urlencode($message);
         $my_result_object = json_decode(file_get_contents($api_url, false));
+
+        //INSERT PESAN TERKIRIM KE DATABASE
+        $query_insert = "INSERT INTO broadcast_ucapan (nama_customer, isi_pesan, no_tujuan)
+                        VALUES ('$row_cust->nama_customer', '$ucapan', '$destination[$i]')";
+        $result_insert = $db->query($query_insert);
+        if(!$result_insert){
+            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_insert);
+        }
         $i++;
     }
     if($result_cust){

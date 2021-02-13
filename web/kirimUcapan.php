@@ -59,7 +59,40 @@ require_once('../functions/db_login.php');
                     <div class="card-body">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-ultah" role="tabpanel" aria-labelledby="nav-ultah-tab">
-                            lorem
+                                <table class="table user-table no-wrap table-striped table-bordered" id="tabel-ultah-sekarang">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Nama</th>
+                                            <th style="text-align: center;">Alamat</th>
+                                            <th style="text-align: center;">No. Telepon</th>
+                                            <th style="text-align: center;">HUT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        #assign a query
+                                        $query_ultah = "SELECT * FROM customer WHERE DAY(tgl_hut) = DAY(CURRENT_DATE) AND MONTH(tgl_hut) = MONTH(CURRENT_DATE)";
+                                        #execute query
+                                        $result_ultah = $db->query($query_ultah);
+                                        if (!$result_ultah) {
+                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ultah);
+                                        }
+                                        if (mysqli_num_rows($result_ultah) == 0) {
+                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada yang berulang tahun hari ini</td></tr>';
+                                        } else {
+                                            while ($row_ultah = $result_ultah->fetch_object()) {
+                                                echo
+                                                '<tr>
+                                                <td>' . $row_ultah->nama_customer . '</td>
+                                                <td>' . $row_ultah->alamat . '</td>
+                                                <td>' . $row_ultah->no_telepon . '</td>
+                                                <td>' . $row_ultah->tgl_hut . '</td>
+                                                </tr>';
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class="tab-pane fade show" id="nav-broadcast" role="tabpanel" aria-labelledby="nav-broadcast-tab">
                                 <form method="POST" action="../functions/broadcastUcapan.php" enctype="multipart/form-data">
@@ -90,10 +123,10 @@ require_once('../functions/db_login.php');
                                         ?>
                                         <!-- END MENGAMBIL TEMPLATE UCAPAN DARI DB -->
                                         <textarea class="form-control" name="ucapanUltah" id="ucapanUltah" cols="30" rows="7" required><?= $row_template->template_ucapan; ?></textarea>
-                                        <p>Keterangan : 
-                                        <br><br>nama customer/instansi dituliskan dengan -> [nama]
-                                        <br>umur customer/instansi dituliskan dengan -> [umur]
-                                        <br>alamat customer/instansi dituliskan dengan -> [alamat]
+                                        <p>Keterangan :
+                                            <br><br>nama customer/instansi dituliskan dengan -> [nama]
+                                            <br>umur customer/instansi dituliskan dengan -> [umur]
+                                            <br>alamat customer/instansi dituliskan dengan -> [alamat]
                                         </p>
                                     </div>
                                     <button type="submit" name="updateTemplate" class="btn btn-warning">Update Template</button>
@@ -106,7 +139,7 @@ require_once('../functions/db_login.php');
                                 <table class="table table-striped table-bordered" style="table-layout: fixed;">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; width: 15%;">Foto</th>
+                                            <th style="text-align: center; width: 15%;">Nama</th>
                                             <th style="text-align: center;">Isi Pesan</th>
                                             <th style="text-align: center; width: 130px;">NO. Tujuan</th>
                                             <th style="text-align: center; width: 160px;">Waktu Kirim</th>
@@ -115,19 +148,23 @@ require_once('../functions/db_login.php');
                                     <tbody>
                                         <?php
                                         #assign a query
-                                        $query = " SELECT * FROM broadcast_produk ORDER BY tgl_input_produk DESC";
+                                        $query_ucapan = " SELECT * FROM broadcast_ucapan
+                                                        WHERE DATE(tgl_kirim) = CURRENT_DATE ORDER BY tgl_kirim DESC";
                                         #execute query
-                                        $result_produk = $db->query($query);
-                                        if (!$result_produk) {
-                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query);
+                                        $result_ucapan = $db->query($query_ucapan);
+                                        if (!$result_ucapan) {
+                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ucapan);
                                         }
-                                        while ($row_terkirim = $result_produk->fetch_object()) {
+                                        if (mysqli_num_rows($result_ucapan) == 0) {
+                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada pesan terkirim hari ini</td></tr>';
+                                        }
+                                        while ($row_terkirim = $result_ucapan->fetch_object()) {
                                             echo
                                             '<tr>
-                                                <td style="text-align: center;"><img class="img-fluid" src="../assets/product/' . $row_terkirim->foto . '"></td>
-                                                <td style="text-overflow: ellipsis; overflow : hidden; white-space : nowrap; min-width: 15%;">' . $row_terkirim->deskripsi . '</td>    
+                                                <td>' . $row_terkirim->nama_customer . '</td>
+                                                <td style="text-overflow: ellipsis; overflow : hidden; white-space : nowrap; min-width: 15%;">' . $row_terkirim->isi_pesan . '</td>    
                                                 <td>' . $row_terkirim->no_tujuan . '</td>
-                                                <td>' . $row_terkirim->tgl_input_produk . '</td>    
+                                                <td>' . $row_terkirim->tgl_kirim . '</td>    
                                             </tr>';
                                         }
                                         ?>
