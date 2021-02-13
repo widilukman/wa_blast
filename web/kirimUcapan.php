@@ -81,12 +81,13 @@ require_once('../functions/db_login.php');
                                             echo '<tr><td colspan="4" style="text-align: center;">Tidak ada yang berulang tahun hari ini</td></tr>';
                                         } else {
                                             while ($row_ultah = $result_ultah->fetch_object()) {
+                                                $hut = new DateTime($row_ultah->tgl_hut);
                                                 echo
                                                 '<tr>
                                                 <td>' . $row_ultah->nama_customer . '</td>
                                                 <td>' . $row_ultah->alamat . '</td>
                                                 <td>' . $row_ultah->no_telepon . '</td>
-                                                <td>' . $row_ultah->tgl_hut . '</td>
+                                                <td>' . date_format($hut, "d-m-Y") . '</td>
                                                 </tr>';
                                             }
                                         }

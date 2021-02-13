@@ -12,17 +12,20 @@ if (!$result) {
 $tgl_sekarang = new DateTime();
 $i = 0;
 while ($row = $result->fetch_object()) {
+    //KALKULASI TENGGAT STNK 1 TAHUN
+    $tgl_1thn[$i] = new DateTime($row->tgl_stnk_1_thn);
+    $selisih_1thn[$i] = date_diff($tgl_sekarang,$tgl_1thn[$i]);
+    //KALKULASI TENGGAT STNK 5 TAHUN
+    $tgl_5thn[$i] = new DateTime($row->tgl_stnk_5_thn);
+    $selisih_5thn[$i] = date_diff($tgl_sekarang,$tgl_5thn[$i]);
+    
     echo '<tr>';
     echo '<td>'.$row->nopol.'</td>';
     echo '<td>'.$row->jenis_kendaraan.'</td>';
     echo '<td>'.$row->holder.'</td>';
-    echo '<td>'.$row->tgl_stnk_1_thn.'</td>';
-    $tgl_1thn[$i] = new DateTime($row->tgl_stnk_1_thn);
-    $selisih_1thn[$i] = date_diff($tgl_sekarang,$tgl_1thn[$i]);
+    echo '<td>'.date_format($tgl_1thn[$i], "d-m-Y").'</td>';
     echo '<td>'.$selisih_1thn[$i]->format("%a hari").'</td>';
-    echo '<td>'.$row->tgl_stnk_5_thn.'</td>';
-    $tgl_5thn[$i] = new DateTime($row->tgl_stnk_5_thn);
-    $selisih_5thn[$i] = date_diff($tgl_sekarang,$tgl_5thn[$i]);
+    echo '<td>'.date_format($tgl_5thn[$i], "d-m-Y").'</td>';
     echo '<td>'.$selisih_5thn[$i]->format("%a hari").'</td>';
     echo '<td>
     <button class="btn btn-warning edit-stnk" data-toggle="modal"

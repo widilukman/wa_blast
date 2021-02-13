@@ -12,16 +12,19 @@ if (!$result) {
 $tgl_sekarang = new DateTime();
 $i = 0;
 while ($row = $result->fetch_object()) {
+    $tgl_servis_berikutnya[$i] = new DateTime($row->tgl_servis_berikutnya);
+    //KALKULASI SERVIS BERIKUTNYA
+    $tgl_servis[$i] = new DateTime($row->tgl_servis_berikutnya);
+    $selisih_servis[$i] = date_diff($tgl_sekarang,$tgl_servis[$i]);
+
     echo '<tr>';
     echo '<td>'.$row->nopol.'</td>';
     echo '<td>'.$row->jenis_kendaraan.'</td>';
     echo '<td>'.$row->holder.'</td>';
     echo '<td>'.$row->km_terbaru.'</td>';
     echo '<td>'.$row->servis_pada_km.'</td>';
-    echo '<td>'.$row->tgl_servis_terakhir.'</td>';
-    echo '<td>'.$row->tgl_servis_berikutnya.'</td>';
-    $tgl_servis[$i] = new DateTime($row->tgl_servis_berikutnya);
-    $selisih_servis[$i] = date_diff($tgl_sekarang,$tgl_servis[$i]);
+    echo '<td>'.date_format($tgl_servis[$i], "d-m-Y").'</td>';
+    echo '<td>'.date_format($tgl_servis_berikutnya[$i], "d-m-Y").'</td>';
     echo '<td>'.$selisih_servis[$i]->format("%a hari").'</td>';
     echo '<td>
     <button class="btn btn-warning edit-servis" data-toggle="modal"
