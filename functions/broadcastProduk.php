@@ -45,6 +45,7 @@ if (isset($_POST["uploadProduk"])) {
         }
         $i++;
     }
+    $result_cust->free();
     echo "<br>Result: " . $my_result_object->success;
     echo "<br>Description: " . $my_result_object->description;
     echo "<br>Code: " . $my_result_object->result_code;

@@ -4,14 +4,14 @@ require_once('db_login.php');
 #assign a query
 $query_stnk = "SELECT * FROM invent_kendaraan ORDER BY tgl_stnk_1_thn";
 #execute query
-$result = $db->query($query_stnk);
-if (!$result) {
+$result_stnk = $db->query($query_stnk);
+if (!$result_stnk) {
     die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_stnk);
 }
 #fetch and display result
 $tgl_sekarang = new DateTime();
 $i = 0;
-while ($row = $result->fetch_object()) {
+while ($row = $result_stnk->fetch_object()) {
     //KALKULASI TENGGAT STNK 1 TAHUN
     $tgl_1thn[$i] = new DateTime($row->tgl_stnk_1_thn);
     $selisih_1thn[$i] = date_diff($tgl_sekarang,$tgl_1thn[$i]);
@@ -44,5 +44,5 @@ while ($row = $result->fetch_object()) {
     $i++;
 }
 
-$result->free();
+$result_stnk->free();
 ?>

@@ -22,6 +22,7 @@ if(isset($_POST['updateTemplate'])){
         echo 'window.location.href = "../web/kirimUcapan.php";';
         echo '</script>';
     }
+    $result_update_template->free();
 }
 
 //MENGIRIM PESAN BROADCAST KE SEMUA CUSTOMER
@@ -78,5 +79,6 @@ if(isset($_POST['broadcastUcapan'])){
         echo 'window.location.href = "../web/kirimUcapan.php";';
         echo '</script>';
     }
+    $result_cust->free();
 }
 ?>

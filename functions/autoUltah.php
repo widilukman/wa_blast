@@ -41,4 +41,7 @@ while($row_cust = $result_cust->fetch_object()){
     $result_insert = $db->query($query_insert);
     $i++;
 }
+$result_cust->free();
+$result_template->free();
+$result_insert->free();
 ?>

@@ -4,14 +4,14 @@ require_once('db_login.php');
 #assign a query
 $query_servis = "SELECT * FROM invent_kendaraan ORDER BY tgl_servis_berikutnya";
 #execute query
-$result = $db->query($query_servis);
-if (!$result) {
+$result_servis = $db->query($query_servis);
+if (!$result_servis) {
     die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_servis);
 }
 #fetch and display result
 $tgl_sekarang = new DateTime();
 $i = 0;
-while ($row = $result->fetch_object()) {
+while ($row = $result_servis->fetch_object()) {
     $tgl_servis_berikutnya[$i] = new DateTime($row->tgl_servis_berikutnya);
     //KALKULASI SERVIS BERIKUTNYA
     $tgl_servis[$i] = new DateTime($row->tgl_servis_berikutnya);
@@ -46,5 +46,5 @@ while ($row = $result->fetch_object()) {
     
 }
 
-$result->free();
+$result_servis->free();
 ?>
