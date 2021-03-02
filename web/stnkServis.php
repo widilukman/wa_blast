@@ -88,7 +88,7 @@ if (!isset($_SESSION['nama'])) {
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="nav-servis" role="tabpanel" aria-labelledby="nav-servis-tab">
-                                <h3>Jatuh Tempo Servis Kendaraan</h3>
+                                <h3>Jatuh Tempo Servis</h3>
                                 <hr>
                                 <div class="table-responsive" id="card-servis">
                                     <table class="table user-table no-wrap table-striped table-bordered" id="tabel-servis">

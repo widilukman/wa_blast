@@ -19,7 +19,7 @@
                             aria-hidden="true"></i><span class="hide-menu">Upload Produk</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="stnkServis.php" aria-expanded="false"><i class="mr-3 fas fa-calendar-alt"
-                            aria-hidden="true"></i><span class="hide-menu">STNK/Servis</span></a></li>
+                            aria-hidden="true"></i><span class="hide-menu">Tenggat STNK/Servis</span></a></li>
                 <li class="text-center p-20 upgrade-btn">
                     <a href="../functions/logout.php"
                         class="btn btn-danger text-white mt-4">Logout</a>
