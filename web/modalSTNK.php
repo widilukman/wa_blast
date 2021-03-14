@@ -10,7 +10,10 @@
             </div>
             <div class="modal-body STNK" id="modalSTNK">
                 <form action="../functions/updateSTNK.php" method="POST">
-                    <input type="hidden" name="nopol" id="nopol-stnk">
+                    <div class="form-group">
+                            <label for="nopol-stnk">Nopol</label>
+                        <input type="text" class="form-control" name="nopol" id="nopol-stnk" readonly>
+                    </div>
                     <div class="form-group">
                         <label for="holder-stnk">Holder</label>
                         <input type="text" class="form-control" name="holder" id="holder-stnk" required>

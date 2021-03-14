@@ -10,10 +10,17 @@
             </div>
             <div class="modal-body Servis" id="modalServis">
                 <form action="../functions/updateServis.php" method="POST">
-                    <input type="hidden" name="nopol" id="nopol-servis">
+                    <div class="form-group">
+                            <label for="nopol-servis">Nopol</label>
+                        <input type="text" class="form-control" name="nopol" id="nopol-servis" readonly>
+                    </div>
                     <div class="form-group">
                         <label for="holder-servis">Holder</label>
                         <input type="text" class="form-control" name="holder" id="holder-servis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="servis-ke">Servis Ke-</label>
+                        <input type="text" class="form-control" name="servis_ke" id="servis-ke" required>
                     </div>
                     <div class="form-group">
                         <label for="km_terbaru">KM Terbaru</label>

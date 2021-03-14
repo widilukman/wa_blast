@@ -22,9 +22,11 @@
     <link href="../assets/plugins/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.min.css" rel="stylesheet">
-
-    
-
+    <style>
+        th{
+            text-align:center;
+        }
+    </style>
 </head>
 
 <body>

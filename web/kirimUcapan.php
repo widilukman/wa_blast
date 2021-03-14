@@ -50,52 +50,15 @@ require_once('../functions/db_login.php');
             <div class="col-12">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-link active" id="nav-ultah-tab" data-toggle="tab" href="#nav-ultah" role="tab" aria-controls="nav-ultah" aria-selected="true">Ultah Hari Ini</a>
-                        <a class="nav-link" id="nav-broadcast-tab" data-toggle="tab" href="#nav-broadcast" role="tab" aria-controls="nav-broadcast" aria-selected="true">Broadcast Ucapan</a>
+                        <a class="nav-link active" id="nav-broadcast-tab" data-toggle="tab" href="#nav-broadcast" role="tab" aria-controls="nav-broadcast" aria-selected="true">Broadcast Ucapan</a>
+                        <a class="nav-link" id="nav-ultah-tab" data-toggle="tab" href="#nav-ultah" role="tab" aria-controls="nav-ultah" aria-selected="true">Ultah Hari Ini</a>
                         <a class="nav-link" id="nav-terkirim-tab" data-toggle="tab" href="#nav-terkirim" role="tab" aria-controls="nav-terkirim" aria-selected="false">Pesan Terkirim</a>
                     </div>
                 </nav>
                 <div class="card">
                     <div class="card-body">
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-ultah" role="tabpanel" aria-labelledby="nav-ultah-tab">
-                                <table class="table user-table no-wrap table-striped table-bordered" id="tabel-ultah-sekarang">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align: center;">Nama</th>
-                                            <th style="text-align: center;">Alamat</th>
-                                            <th style="text-align: center;">No. Telepon</th>
-                                            <th style="text-align: center;">HUT</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        #assign a query
-                                        $query_ultah = "SELECT * FROM customer WHERE DAY(tgl_hut) = DAY(CURRENT_DATE) AND MONTH(tgl_hut) = MONTH(CURRENT_DATE)";
-                                        #execute query
-                                        $result_ultah = $db->query($query_ultah);
-                                        if (!$result_ultah) {
-                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ultah);
-                                        }
-                                        if (mysqli_num_rows($result_ultah) == 0) {
-                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada yang berulang tahun hari ini</td></tr>';
-                                        } else {
-                                            while ($row_ultah = $result_ultah->fetch_object()) {
-                                                $hut = new DateTime($row_ultah->tgl_hut);
-                                                echo
-                                                '<tr>
-                                                <td>' . $row_ultah->nama_customer . '</td>
-                                                <td>' . $row_ultah->alamat . '</td>
-                                                <td>' . $row_ultah->no_telepon . '</td>
-                                                <td>' . date_format($hut, "d-m-Y") . '</td>
-                                                </tr>';
-                                            }
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane fade show" id="nav-broadcast" role="tabpanel" aria-labelledby="nav-broadcast-tab">
+                            <div class="tab-pane fade show active" id="nav-broadcast" role="tabpanel" aria-labelledby="nav-broadcast-tab">
                                 <form method="POST" action="../functions/broadcastUcapan.php" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="setting-wa">
@@ -136,14 +99,51 @@ require_once('../functions/db_login.php');
                                     </div>
                                 </form>
                             </div>
+                            <div class="tab-pane fade" id="nav-ultah" role="tabpanel" aria-labelledby="nav-ultah-tab">
+                                <table class="table user-table no-wrap table-striped table-bordered" id="tabel-ultah-sekarang">
+                                    <thead>
+                                        <tr>
+                                        <th style="text-align: center;">Nama</th>
+                                        <th style="text-align: center;">Alamat</th>
+                                        <th style="text-align: center;">No. Telepon</th>
+                                        <th style="text-align: center;">HUT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        #assign a query
+                                        $query_ultah = "SELECT * FROM customer WHERE DAY(tgl_hut) = DAY(CURRENT_DATE) AND MONTH(tgl_hut) = MONTH(CURRENT_DATE)";
+                                        #execute query
+                                        $result_ultah = $db->query($query_ultah);
+                                        if (!$result_ultah) {
+                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ultah);
+                                        }
+                                        if (mysqli_num_rows($result_ultah) == 0) {
+                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada yang berulang tahun hari ini</td></tr>';
+                                        } else {
+                                            while ($row_ultah = $result_ultah->fetch_object()) {
+                                                $hut = new DateTime($row_ultah->tgl_hut);
+                                                echo
+                                                '<tr>
+                                                <td>' . $row_ultah->nama_customer . '</td>
+                                                <td>' . $row_ultah->alamat . '</td>
+                                                <td>' . $row_ultah->no_telepon . '</td>
+                                                <td>' . date_format($hut, "d-m-Y") . '</td>
+                                                </tr>';
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                             <div class="tab-pane fade" id="nav-terkirim" role="tabpanel" aria-labelledby="nav-terkirim-tab">
                                 <table class="table table-striped table-bordered" style="table-layout: fixed;">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; width: 15%;">Nama</th>
-                                            <th style="text-align: center;">Isi Pesan</th>
-                                            <th style="text-align: center; width: 130px;">NO. Tujuan</th>
-                                            <th style="text-align: center; width: 160px;">Waktu Kirim</th>
+                                            <th style="width: 15%;">Nama</th>
+                                            <th>Isi Pesan</th>
+                                            <th style="width: 130px;">No. Tujuan</th>
+                                            <th style="width: 160px;">Waktu Kirim</th>
                                         </tr>
                                     </thead>
                                     <tbody>

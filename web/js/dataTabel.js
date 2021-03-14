@@ -1,14 +1,14 @@
 //Untuk Sorting Tanggal dalam datatables
 $.fn.dataTable.moment = function ( format, locale ) {
     var types = $.fn.dataTable.ext.type;
- 
+
     // Add type detection
     types.detect.unshift( function ( d ) {
         return moment( d, format, locale, true ).isValid() ?
             'moment-'+format :
             null;
     } );
- 
+
     // Add sorting method - use an integer for the sorting
     types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
         return moment( d, format, locale, true ).unix();
@@ -28,6 +28,9 @@ $(document).ready(function() {
             }
         }, 
         'colvis'],
+        columnDefs: [
+            { orderable: false, targets: [0, 1, 2, 7] }
+        ],
         "pageLength": 5
     } );
 
@@ -47,6 +50,9 @@ $(document).ready(function() {
             }
         }, 
         'colvis'],
+        columnDefs: [
+            { orderable: false, targets: [0, 1, 2, 3, 4, 8] }
+        ],
         "pageLength": 5
     } );
 
