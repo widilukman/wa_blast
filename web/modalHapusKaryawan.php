@@ -15,7 +15,7 @@
                     <div class="d-flex justify-content-center">
                         <p style="font-size: medium; text-align:center;">
                         <br><b style="color: red; font-size:large;">Peringatan!</b>
-                        <br> Anda juga akan menghapus data dalam inventaris kendaraan
+                        <br> Anda juga akan menghapus data dalam inventaris kendaraan.
                         <br>Apakah anda yakin ingin menghapus data ini?</p>
                     </div>
                     <br>

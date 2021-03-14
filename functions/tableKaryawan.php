@@ -27,7 +27,7 @@ while ($row = $result_karyawan->fetch_object()) {
     echo '<td>'.$row->no_telp_karyawan.'</td>';
     echo '<td>
     <button class="btn btn-warning edit-karyawan" data-toggle="modal"
-    data-nopol="'.$nopol.'"
+    data-nopol_karyawan="'.$nopol.'"
     data-id_karyawan="'.$row->id_karyawan.'"
     data-nama_karyawan="'.$row->nama_karyawan.'" 
     data-telp_karyawan="'.$row->no_telp_karyawan.'"

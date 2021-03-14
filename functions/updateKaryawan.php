@@ -19,7 +19,7 @@ if(isset($_POST['updateKaryawan'])){
     $result_karyawan = $db->query($query_update_karyawan);
     $result_invent = $db->query($query_update_invent);
 
-    if (!$result_karyawan || !$result_invent) {
+    if (!$result_invent) {
         die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_update_karyawan);
     }
     if($result_karyawan || $result_invent){

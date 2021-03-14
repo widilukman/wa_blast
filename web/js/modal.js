@@ -78,7 +78,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     $(document).on('click', '.edit-karyawan', function () {
-        var nopol = $(this).data('nopol-karyawan');
+        var nopol = $(this).data('nopol_karyawan');
         var idKaryawan = $(this).data('id_karyawan');
         var namaKaryawan = $(this).data('nama_karyawan');
         var telpKaryawan = $(this).data('telp_karyawan');
