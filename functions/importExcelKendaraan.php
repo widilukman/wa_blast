@@ -25,18 +25,22 @@ if (isset($_POST['import'])) {
             $jenis_kendaraan        = $sheetData[$i]['1'];
             $thn_kendaraan          = $sheetData[$i]['2'];
             $holder                 = $sheetData[$i]['3'];
-            $wilayah                = $sheetData[$i]['4'];
-            $tgl_stnk_1_thn         = $sheetData[$i]['5'];
-            $tgl_stnk_5_thn         = $sheetData[$i]['6'];
-            $tgl_servis_terakhir    = $sheetData[$i]['7'];
-            $servis_ke              = $sheetData[$i]['8'];
-            $tgl_servis_berikutnya  = $sheetData[$i]['9'];
-            $km_terbaru             = $sheetData[$i]['10'];
-            $servis_pada_km         = $sheetData[$i]['11'];
-            mysqli_query($db, "INSERT into invent_kendaraan (nopol, jenis_kendaraan, thn_kendaraan, holder, wilayah, tgl_stnk_1_thn, tgl_stnk_5_thn,
+            $no_telepon             = $sheetData[$i]['4'];
+            $wilayah                = $sheetData[$i]['5'];
+            $tgl_stnk_1_thn         = $sheetData[$i]['6'];
+            $tgl_stnk_5_thn         = $sheetData[$i]['7'];
+            $tgl_servis_terakhir    = $sheetData[$i]['8'];
+            $servis_ke              = $sheetData[$i]['9'];
+            $tgl_servis_berikutnya  = $sheetData[$i]['10'];
+            $km_terbaru             = $sheetData[$i]['11'];
+            $servis_pada_km         = $sheetData[$i]['12'];
+            mysqli_query($db, "INSERT INTO invent_kendaraan (nopol, jenis_kendaraan, thn_kendaraan, holder, wilayah, tgl_stnk_1_thn, tgl_stnk_5_thn,
                                             tgl_servis_terakhir, servis_ke, tgl_servis_berikutnya, km_terbaru, servis_pada_km) 
                                 VALUES ('$nopol','$jenis_kendaraan','$thn_kendaraan','$holder','$wilayah','$tgl_stnk_1_thn', '$tgl_stnk_5_thn',
                                         '$tgl_servis_terakhir', '$servis_ke', '$tgl_servis_berikutnya', '$km_terbaru', '$servis_pada_km')");
+            
+            mysqli_query($db, "INSERT INTO karyawan (nama_karyawan, no_telp_karyawan)
+                                VALUES ('$holder', '$no_telepon')");
         }
         echo '<script type="text/javascript">';
         echo 'alert("Data BERHASIL di-import");';

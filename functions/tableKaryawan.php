@@ -34,6 +34,7 @@ while ($row = $result_karyawan->fetch_object()) {
     data-target="#modal-edit-karyawan">Edit</button>
 
     <button class="btn btn-danger hapus-karyawan"
+    data-nopol_karyawan="'.$nopol.'"
     data-id_karyawan="'.$row->id_karyawan.'" 
     data-toggle="modal" 
     data-target="#modal-hapus-karyawan"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>

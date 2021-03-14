@@ -90,13 +90,15 @@ $(document).ready(function() {
     });
 })
 
-//MODAL HAPUS DATA CUSTOMER
+//MODAL HAPUS DATA KARYAWAN
 $(document).ready(function() {
 
-    $(document).on('click', '.hapus-karyawan', function () { 
+    $(document).on('click', '.hapus-karyawan', function () {
+        var nopol_karyawan = $(this).data('nopol_karyawan');
         var id_karyawan = $(this).data('id_karyawan');
         
-        $("#id_karyawan").val(id_karyawan);
+        $(".hapusKaryawan #nopol_karyawan").val(nopol_karyawan);
+        $(".hapusKaryawan #id_karyawan").val(id_karyawan);
     });
 })
 

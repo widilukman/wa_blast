@@ -114,15 +114,15 @@ if (!isset($_SESSION['nama'])) {
                             <!-- MODAL -->
                             <?php include('modalTambah.php'); ?>
                             <?php include('modalInfo.php'); ?>
-                            <?php include('modalSTNK.php'); ?>
-                            <?php include('modalServis.php'); ?>
+                            <?php include('modalEditSTNK.php'); ?>
+                            <?php include('modalEditServis.php'); ?>
                             <?php include('modalHapus.php'); ?>
                             <!-- MODAL -->
                             <div class="tab-pane fade" id="import-kendaraan" role="tabpanel" aria-labelledby="import-kendaraan-tab">
                                 <h3>Import ke Database</h3>
                                 <hr>
                                 <!-- Form Upload File Excel -->
-                                <?php include('../functions/importExcel.php'); ?>
+                                <?php include('../functions/importExcelKendaraan.php'); ?>
                                 <div class="row">
                                     <div class="col-6">
                                         <form method="POST" enctype="multipart/form-data">
@@ -145,7 +145,7 @@ if (!isset($_SESSION['nama'])) {
                                     </div>
                                     <div class="col-6">
                                         <div class="d-flex justify-content-end">
-                                            <button class="btn btn-secondary"><a href="../assets/file/Template_Excel.xlsx" style="color: whitesmoke;">
+                                            <button class="btn btn-secondary"><a href="../assets/file/Template_Inventaris_Kendaraan.xlsx" style="color: whitesmoke;">
                                                     <i class="mr-3 fas fa-download" aria-hidden="true"></i>Template Excel</a></button>
                                         </div>
                                     </div>

@@ -58,7 +58,7 @@ if (!isset($_SESSION['nama'])) {
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-link active" id="nav-customer-tab" data-toggle="tab" href="#nav-customer" role="tab" aria-controls="nav-customer" aria-selected="true">Customer</a>
                         <a class="nav-link" id="nav-karyawan-tab" data-toggle="tab" href="#nav-karyawan" role="tab" aria-controls="nav-karyawan" aria-selected="true">Karyawan</a>
-                        <a class="nav-link" id="nav-terkirim-tab" data-toggle="tab" href="#import-kendaraan" role="tab" aria-controls="nav-terkirim" aria-selected="false">Import Data</a>
+                        <a class="nav-link" id="nav-customer-tab" data-toggle="tab" href="#import-customer" role="tab" aria-controls="nav-customer" aria-selected="false">Import Data</a>
                     </div>
                 </nav>
                 <div class="card">
@@ -103,12 +103,46 @@ if (!isset($_SESSION['nama'])) {
                                 </div>
                             </div>
                             <!-- MODAL -->
-                            <?php include('modalCustomer.php'); ?>
-                            <?php include('modalKaryawan.php'); ?>
+                            <?php include('modalEditCustomer.php'); ?>
+                            <?php include('modalEditKaryawan.php'); ?>
                             <?php include('modalTambahCustomer.php'); ?>
                             <?php include('modalTambahKaryawan.php'); ?>
                             <?php include('modalHapusCustomer.php'); ?>
                             <?php include('modalHapusKaryawan.php'); ?>
+                            <!-- MODAL -->
+                            <div class="tab-pane fade" id="import-customer" role="tabpanel" aria-labelledby="import-customer-tab">
+                                <h3>Import Data Customer</h3>
+                                <hr>
+                                <!-- Form Upload File Excel -->
+                                <?php include('../functions/importExcelCustomer.php'); ?>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <form method="POST" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input type="file" name="berkas_excel" class="" id="importExcel" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col">
+                                                    <button type="submit" name="importCustomer" value="import" class="btn btn-info">Import</button>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-secondary"><a href="../assets/file/Template_Customer.xlsx" style="color: whitesmoke;">
+                                                    <i class="mr-3 fas fa-download" aria-hidden="true"></i>Template Excel</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
