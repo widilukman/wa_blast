@@ -60,4 +60,42 @@ $(document).ready(function() {
         .appendTo( '#card-servis .col-md-6:eq(0)' );
 } );
 
-console.log()
+//Datatables Untuk Customer
+$(document).ready(function() {
+    var table = $('#tabel-customer').DataTable({
+        lengthChange: false,
+        buttons: [ {
+            extend:'excelHtml5',
+            exportOptions: {
+                columns: ':visible'
+            }
+        }],
+        columnDefs: [
+            { orderable: false, targets: [1, 2, 3, 4] }
+        ],
+        "pageLength": 5
+    } );
+
+    table.buttons().container()
+        .appendTo( '#card-customer .col-md-6:eq(0)' );
+} );
+
+//Datatables Untuk Karyawan
+$(document).ready(function() {
+    var table = $('#tabel-karyawan').DataTable({
+        lengthChange: false,
+        buttons: [ {
+            extend:'excelHtml5',
+            exportOptions: {
+                columns: ':visible'
+            }
+        }],
+        columnDefs: [
+            { orderable: false, targets: [1, 2] }
+        ],
+        "pageLength": 5
+    } );
+
+    table.buttons().container()
+        .appendTo( '#card-karyawan .col-md-6:eq(0)' );
+} );
