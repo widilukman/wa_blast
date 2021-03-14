@@ -22,7 +22,9 @@ $(document).ready(function() {
         lengthChange: false,
         "order": [[ 4, "asc" ]],
         buttons: [ {
-            extend:'excelHtml5', text: 'Export as Excel',
+            extend:'excelHtml5',
+            text: 'Export as Excel',
+            title: 'Data_STNK',
             exportOptions: {
                 columns: ':visible'
             }
@@ -44,7 +46,9 @@ $(document).ready(function() {
         lengthChange: false,
         "order": [[ 7, "asc" ]],
         buttons: [ {
-            extend:'excelHtml5', text: 'Export as Excel',
+            extend:'excelHtml5',
+            text: 'Export as Excel',
+            title: 'Data_Servis',
             exportOptions: {
                 columns: ':visible'
             }
@@ -65,7 +69,9 @@ $(document).ready(function() {
     var table = $('#tabel-customer').DataTable({
         lengthChange: false,
         buttons: [ {
-            extend:'excelHtml5', text: 'Export as Excel',
+            extend:'excelHtml5',
+            text: 'Export as Excel',
+            title: 'Data_Customer',
             exportOptions: {
                 columns: ':visible'
             }
@@ -85,7 +91,9 @@ $(document).ready(function() {
     var table = $('#tabel-karyawan').DataTable({
         lengthChange: false,
         buttons: [ {
-            extend:'excelHtml5', text: 'Export as Excel',
+            extend:'excelHtml5',
+            text: 'Export as Excel',
+            title: 'Data_Karyawan',
             exportOptions: {
                 columns: ':visible'
             }
