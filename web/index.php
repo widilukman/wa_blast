@@ -56,7 +56,7 @@ if (!isset($_SESSION['nama'])) {
                             <div class="card">
                                 <div class="card-header" id="headingSTNK">
                                     <h2 class="mb-0">
-                                        <button class="btn  btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSTNK" aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="btn  btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseSTNK" aria-expanded="true" aria-controls="collapseOne">
                                             <strong>Tampilkan Data STNK</strong>
                                         </button>
                                     </h2>
@@ -80,7 +80,7 @@ if (!isset($_SESSION['nama'])) {
                                 </div>
                                 <div class="card-header" id="headingServis">
                                     <h2 class="mb-0">
-                                        <button class="btn  btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseServis" aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="btn  btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseServis" aria-expanded="true" aria-controls="collapseOne">
                                             <strong>Tampilkan Data Servis</strong>
                                         </button>
                                     </h2>
@@ -113,7 +113,7 @@ if (!isset($_SESSION['nama'])) {
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
-                                        <button class="btn  btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="btn  btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                             <strong>Tampilkan Data Customer</strong>
                                         </button>
                                     </h2>
