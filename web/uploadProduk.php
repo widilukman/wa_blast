@@ -107,11 +107,16 @@ require_once('../functions/db_login.php');
                                     <tbody>
                                         <?php
                                         #assign a query
-                                        $query = " SELECT * FROM broadcast_produk ORDER BY tgl_input_produk DESC";
+                                        $query = " SELECT * FROM broadcast_produk 
+                                                    WHERE DATE(tgl_input_produk) = CURRENT_DATE
+                                                    ORDER BY tgl_input_produk DESC";
                                         #execute query
                                         $result_produk = $db->query($query);
                                         if (!$result_produk) {
                                             die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query);
+                                        }
+                                        if (mysqli_num_rows($result_produk) == 0) {
+                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada pesan terkirim hari ini</td></tr>';
                                         }
                                         while ($row_terkirim = $result_produk->fetch_object()) {
                                             echo
