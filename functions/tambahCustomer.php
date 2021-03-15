@@ -17,13 +17,11 @@ if(isset($_POST['tambahCustomer'])){
     }
     if($result_tambah){
         echo '<script type="text/javascript">';
-        echo 'alert("DATA CUSTOMER BERHASIL DITAMBAHKAN");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=5";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("DATA CUSTOMER GAGAL DITAMBAHKAN");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-5";';
         echo '</script>';
     }
 }

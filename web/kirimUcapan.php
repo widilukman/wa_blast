@@ -28,7 +28,7 @@ require_once('../functions/db_login.php');
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Kirim Ucapan</li>
                         </ol>
                     </nav>
@@ -43,6 +43,34 @@ require_once('../functions/db_login.php');
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
+        <?php 
+        if(isset($_GET['success'])){
+            echo '<div class="col">';
+            switch($_GET['success']){
+                case '1':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> ucapan berhasil dikirimkan ke customer<br>';
+                    break;
+                case '-1':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>gagal!</strong> ucapan gagal dikirimkan ke customer<br>';
+                    break;
+                case '2':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> template berhasil di-update<br>';
+                    break;
+                case '-2':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>gagal!</strong> template gagal di-update<br>';
+                    break;
+            }
+            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+            echo '</div>';
+        }
+        ?>
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->

@@ -51,7 +51,9 @@ if (isset($_POST["uploadProduk"])) {
     echo "<br>Code: " . $my_result_object->result_code;
 
     echo '<script type="text/javascript">';
-    echo 'alert("PESAN TERKIRIM");';
-    echo 'window.location.href = "../web/uploadProduk.php"';
+    echo 'window.location.href = "../web/uploadProduk.php?succes=1"';
     echo '</script>';
 }
+echo '<script type="text/javascript">';
+echo 'window.location.href = "../web/uploadProduk.php?succes=-1"';
+echo '</script>';

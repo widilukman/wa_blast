@@ -21,13 +21,11 @@ if(isset($_POST['updateCustomer'])){
     }
     if($result_customer){
         echo '<script type="text/javascript">';
-        echo 'alert("DATA CUSTOMER BERHASIL DI-UPDATE");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=1";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("DATA CUSTOMER GAGAL DI-UPDATE");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-1";';
         echo '</script>';
     }
 }

@@ -43,9 +43,11 @@ if (isset($_POST['import'])) {
                                 VALUES ('$holder', '$no_telepon')");
         }
         echo '<script type="text/javascript">';
-        echo 'alert("Data BERHASIL di-import");';
-        echo 'window.location.href = "../web/stnkServis.php";';
+        echo 'window.location.href = "../web/stnkServis.php?success=5";';
         echo '</script>';
     }
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/stnkServis.php?success=-5";';
+    echo '</script>';
 }
 ?>

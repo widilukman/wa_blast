@@ -19,13 +19,11 @@ if(isset($_POST['updateSTNK'])){
     }
     if($result_stnk){
         echo '<script type="text/javascript">';
-        echo 'alert("DATA BERHASIL DI-UPDATE");';
-        echo 'window.location.href = "../web/stnkServis.php";';
+        echo 'window.location.href = "../web/stnkServis.php?success=1";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("DATA GAGAL DI-UPDATE");';
-        echo 'window.location.href = "../web/stnkServis.php";';
+        echo 'window.location.href = "../web/stnkServis.php?success=-1";';
         echo '</script>';
     }
 }

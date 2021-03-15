@@ -27,13 +27,11 @@ if(isset($_POST['tambahData'])){
     }
     if($result_tambah){
         echo '<script type="text/javascript">';
-        echo 'alert("DATA BERHASIL DITAMBAHKAN");';
-        echo 'window.location.href = "../web/stnkServis.php";';
+        echo 'window.location.href = "../web/stnkServis.php?success=4";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("DATA GAGAL DITAMBAHKAN");';
-        echo 'window.location.href = "../web/stnkServis.php";';
+        echo 'window.location.href = "../web/stnkServis.php?success=-4";';
         echo '</script>';
     }
 }

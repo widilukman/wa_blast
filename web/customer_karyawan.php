@@ -25,7 +25,7 @@ if (!isset($_SESSION['nama'])) {
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Customer/Karyawan</li>
                         </ol>
                     </nav>
@@ -40,6 +40,74 @@ if (!isset($_SESSION['nama'])) {
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
+        <?php 
+        if(isset($_GET['success'])){
+            echo '<div class="col">';
+            switch($_GET['success']){
+                case '1':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data customer berhasil di-update<br>';
+                    break;
+                case '-1':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data customer gagal di-update<br>';
+                    break;
+                case '2':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data karyawan berhasil di-update<br>';
+                    break;
+                case '-2':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data karyawan gagal di-update<br>';
+                    break;
+                case '3':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data customer berhasil dihapus<br>';
+                    break;
+                case '-3':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data customer gagal dihapus<br>';
+                    break;
+                case '4':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data karyawan berhasil dihapus<br>';
+                    break;
+                case '-4':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data karyawan gagal dihapus<br>';
+                    break;
+                case '5':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data customer berhasil ditambahkan<br>';
+                    break;
+                case '-5':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data customer gagal ditambahkan<br>';
+                    break;
+                case '6':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data karyawan berhasil ditambahkan<br>';
+                    break;
+                case '-6':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data karyawan gagal ditambahkan<br>';
+                    break;
+                case '7':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data customer berhasil di-import<br>';
+                    break;
+                case '-7':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data customer gagal di-import<br>';
+                    break;
+            }
+            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+            echo '</div>';
+        }
+        ?>
         <!-- ============================================================== -->
         <!-- Table -->
         <!-- ============================================================== -->
@@ -126,11 +194,6 @@ if (!isset($_SESSION['nama'])) {
                                             <div class="row mt-3">
                                                 <div class="col">
                                                     <button type="submit" name="importCustomer" value="import" class="btn btn-info">Import</button>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-
                                                 </div>
                                             </div>
                                         </form>

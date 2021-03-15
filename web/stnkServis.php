@@ -25,7 +25,7 @@ if (!isset($_SESSION['nama'])) {
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">STNK/Servis</li>
                         </ol>
                     </nav>
@@ -40,6 +40,58 @@ if (!isset($_SESSION['nama'])) {
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
+        <?php 
+        if(isset($_GET['success'])){
+            echo '<div class="col">';
+            switch($_GET['success']){
+                case '1':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data STNK berhasil di-update<br>';
+                    break;
+                case '-1':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data STNK gagal di-update<br>';
+                    break;
+                case '2':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data Servis berhasil di-update<br>';
+                    break;
+                case '-2':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data Servis gagal di-update<br>';
+                    break;
+                case '3':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data Kendaraan berhasil dihapus<br>';
+                    break;
+                case '-3':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data Kendaraan gagal dihapus<br>';
+                    break;
+                case '4':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data Kendaraan berhasil ditambahkan<br>';
+                    break;
+                case '-4':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data Kendaraan gagal ditambahkan<br>';
+                    break;
+                case '5':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> data customer berhasil di-import<br>';
+                    break;
+                case '-5':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> data customer gagal di-import<br>';
+                    break;
+            }
+            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+            echo '</div>';
+        }
+        ?>
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->

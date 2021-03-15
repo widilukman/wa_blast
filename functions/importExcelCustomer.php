@@ -30,9 +30,11 @@ if (isset($_POST['importCustomer'])) {
                                 VALUES ('$nama_customer', '$alamat', '$no_telepon', '$tgl_hut')");
         }
         echo '<script type="text/javascript">';
-        echo 'alert("Data BERHASIL di-import");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=7";';
         echo '</script>';
     }
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/customer_karyawan.php?success=-7";';
+    echo '</script>';
 }
 ?>

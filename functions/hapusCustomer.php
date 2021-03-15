@@ -12,13 +12,11 @@ if(isset($_POST['hapusCustomer'])){
     }
     if($result_delete_customer){
         echo '<script type="text/javascript">';
-        echo 'alert("DATA BERHASIL DIHAPUS");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=3";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("DATA GAGAL DIHAPUS");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-3";';
         echo '</script>';
     }
 }

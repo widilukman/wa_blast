@@ -19,13 +19,11 @@ if(isset($_POST['hapusKaryawan'])){
     }
     if($result_delete_karyawan || $result_delete_karyawan){
         echo '<script type="text/javascript">';
-        echo 'alert("DATA BERHASIL DIHAPUS");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=4";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("DATA GAGAL DIHAPUS");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-4";';
         echo '</script>';
     }
 }

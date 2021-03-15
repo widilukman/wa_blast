@@ -19,6 +19,26 @@ require_once('../functions/db_login.php');
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
+    <?php 
+        if(isset($_GET['success'])){
+            echo '<div class="col">';
+            switch($_GET['success']){
+                case '1':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> pesan berhasil dikirimkan ke customer<br>';
+                    break;
+                case '-1':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>gagal!</strong> pesan gagal dikirimkan ke customer<br>';
+                    break;
+            }
+            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+            echo '</div>';
+        }
+        ?>
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -29,7 +49,7 @@ require_once('../functions/db_login.php');
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Upload Produk</li>
                         </ol>
                     </nav>

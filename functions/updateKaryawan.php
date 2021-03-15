@@ -24,13 +24,11 @@ if(isset($_POST['updateKaryawan'])){
     }
     if($result_karyawan || $result_invent){
         echo '<script type="text/javascript">';
-        echo 'alert("DATA KARYAWAN BERHASIL DI-UPDATE");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=2";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("DATA KARYAWAN GAGAL DI-UPDATE");';
-        echo 'window.location.href = "../web/customer_karyawan.php";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-2";';
         echo '</script>';
     }
 }

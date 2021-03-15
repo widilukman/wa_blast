@@ -13,13 +13,11 @@ if(isset($_POST['updateTemplate'])){
     }
     if($result_update_template){
         echo '<script type="text/javascript">';
-        echo 'alert("TEMPLATE BERHASIL DI-UPDATE");';
-        echo 'window.location.href = "../web/kirimUcapan.php";';
+        echo 'window.location.href = "../web/kirimUcapan.php?success=2";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("TEMPLATE GAGAL DI-UPDATE");';
-        echo 'window.location.href = "../web/kirimUcapan.php";';
+        echo 'window.location.href = "../web/kirimUcapan.php?success=-2";';
         echo '</script>';
     }
     $result_update_template->free();
@@ -70,13 +68,11 @@ if(isset($_POST['broadcastUcapan'])){
     }
     if($result_cust){
         echo '<script type="text/javascript">';
-        echo 'alert("PESAN BERHASIL DIKIRIM");';
-        echo 'window.location.href = "../web/kirimUcapan.php";';
+        echo 'window.location.href = "../web/kirimUcapan.php?success=1";';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'alert("PESAN GAGAL DIKIRIM");';
-        echo 'window.location.href = "../web/kirimUcapan.php";';
+        echo 'window.location.href = "../web/kirimUcapan.php?success=-1";';
         echo '</script>';
     }
     $result_cust->free();
