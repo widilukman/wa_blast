@@ -34,9 +34,18 @@ $(function() {
 
 });
 
-//datepicker
+//Script untuk DATEPICKER
 $("#tahun-kendaraan").datepicker({
     format: "yyyy",
     startView: "years", 
     minViewMode: "years"
 });
+
+//Script untuk ALERT
+$(document).ready(function() {
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 3000);
+}); 
