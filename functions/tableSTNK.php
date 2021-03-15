@@ -38,9 +38,9 @@ while ($row = $result_stnk->fetch_object()) {
     echo '<td>'.$row->jenis_kendaraan.'</td>';
     echo '<td>'.$row->holder.'</td>';
     echo '<td>'.date_format($tgl_1thn[$i], "d-m-Y").'</td>';
-    echo '<td>'.$selisih_1thn[$i]->format("%a hari").'</td>';
+    echo '<td>'.$selisih_1thn[$i]->format("%r%a hari").'</td>';
     echo '<td>'.date_format($tgl_5thn[$i], "d-m-Y").'</td>';
-    echo '<td>'.$selisih_5thn[$i]->format("%a hari").'</td>';
+    echo '<td>'.$selisih_5thn[$i]->format("%r%a hari").'</td>';
     echo '<td>
     <button class="btn btn-info info-karyawan"
     data-nama_karyawan="'.$nama_karyawan.'"

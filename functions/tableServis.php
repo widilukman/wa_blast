@@ -39,7 +39,7 @@ while ($row = $result_servis->fetch_object()) {
     echo '<td>'.$row->servis_pada_km.'</td>';
     echo '<td>'.date_format($tgl_servis[$i], "d-m-Y").'</td>';
     echo '<td>'.date_format($tgl_servis_berikutnya[$i], "d-m-Y").'</td>';
-    echo '<td>'.$selisih_servis[$i]->format("%a hari").'</td>';
+    echo '<td>'.$selisih_servis[$i]->format("%r%a hari").'</td>';
     echo '<td>
     <button class="btn btn-info info-karyawan"
     data-nama_karyawan="'.$nama_karyawan.'"
