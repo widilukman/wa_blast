@@ -86,7 +86,7 @@ if (!isset($_SESSION['nama'])) {
                     break;
                 case '-50':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong>ERROR dalam DB. data No.telepon customer duplikat<br>';
+                            <strong>Gagal!</strong> ERROR dalam DB. data No.telepon customer duplikat<br>';
                     break;
                 case '6':
                     echo '<div class="alert alert-success alert-dismissible fade show">
@@ -102,11 +102,15 @@ if (!isset($_SESSION['nama'])) {
                     break;
                 case '7':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data customer berhasil di-import<br>';
+                            <strong>Sukses!</strong> data customer berhasil di-import (Terdapat '.$_GET['duplikat'].' data duplikat)<br>';
                     break;
                 case '-7':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
                             <strong>Gagal!</strong> data customer gagal di-import<br>';
+                    break;
+                case '-70':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> ERROR dalam DB. data customer duplikat dengan data lain<br>';
                     break;
             }
             echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">

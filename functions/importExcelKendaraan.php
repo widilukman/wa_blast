@@ -20,6 +20,7 @@ if (isset($_POST['import'])) {
         $spreadsheet = $reader->load($_FILES['berkas_excel']['tmp_name']);
 
         $sheetData = $spreadsheet->getActiveSheet()->toArray();
+        $l = 0;
         for ($i = 1; $i < count($sheetData); $i++) {
             $nopol                  = $sheetData[$i]['0'];
             $jenis_kendaraan        = $sheetData[$i]['1'];
@@ -34,16 +35,19 @@ if (isset($_POST['import'])) {
             $tgl_servis_berikutnya  = $sheetData[$i]['10'];
             $km_terbaru             = $sheetData[$i]['11'];
             $servis_pada_km         = $sheetData[$i]['12'];
-            mysqli_query($db, "INSERT INTO invent_kendaraan (nopol, jenis_kendaraan, thn_kendaraan, holder, wilayah, tgl_stnk_1_thn, tgl_stnk_5_thn,
+            $duplikat = mysqli_query($db, "INSERT INTO invent_kendaraan (nopol, jenis_kendaraan, thn_kendaraan, holder, wilayah, tgl_stnk_1_thn, tgl_stnk_5_thn,
                                             tgl_servis_terakhir, servis_ke, tgl_servis_berikutnya, km_terbaru, servis_pada_km) 
                                 VALUES ('$nopol','$jenis_kendaraan','$thn_kendaraan','$holder','$wilayah','$tgl_stnk_1_thn', '$tgl_stnk_5_thn',
                                         '$tgl_servis_terakhir', '$servis_ke', '$tgl_servis_berikutnya', '$km_terbaru', '$servis_pada_km')");
             
-            mysqli_query($db, "INSERT INTO karyawan (nama_karyawan, no_telp_karyawan)
+            $duplikat_karyawan = mysqli_query($db, "INSERT INTO karyawan (nama_karyawan, no_telp_karyawan)
                                 VALUES ('$holder', '$no_telepon')");
+            if(!$duplikat || !$duplikat_karyawan){
+                $l++;
+            }
         }
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/stnkServis.php?success=5";';
+        echo 'window.location.href = "../web/stnkServis.php?success=5&duplikat='.$l.'";';
         echo '</script>';
     }
     echo '<script type="text/javascript">';

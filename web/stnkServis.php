@@ -82,7 +82,7 @@ if (!isset($_SESSION['nama'])) {
                     break;
                 case '5':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data customer berhasil di-import<br>';
+                            <strong>Sukses!</strong> data customer berhasil di-import (Terdapat '.$_GET['duplikat'].' data duplikat)<br>';
                     break;
                 case '-5':
                     echo '<div class="alert alert-danger alert-dismissible fade show">

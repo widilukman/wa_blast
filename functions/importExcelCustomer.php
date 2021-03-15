@@ -20,17 +20,21 @@ if (isset($_POST['importCustomer'])) {
         $spreadsheet = $reader->load($_FILES['berkas_excel']['tmp_name']);
 
         $sheetData = $spreadsheet->getActiveSheet()->toArray();
+        $l = 0;
         for ($i = 1; $i < count($sheetData); $i++) {
             $nama_customer  = $sheetData[$i]['0'];
             $alamat         = $sheetData[$i]['1'];
             $no_telepon     = $sheetData[$i]['2'];
             $tgl_hut        = $sheetData[$i]['3'];
             
-            mysqli_query($db, "INSERT INTO customer (nama_customer, alamat, no_telepon, tgl_hut)
+            $ada_duplikat = mysqli_query($db, "INSERT INTO customer (nama_customer, alamat, no_telepon, tgl_hut)
                                 VALUES ('$nama_customer', '$alamat', '$no_telepon', '$tgl_hut')");
+            if(!$ada_duplikat){
+                $l++;
+            }
         }
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/customer_karyawan.php?success=7";';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=7&duplikat='.$l.'"';
         echo '</script>';
     }
     echo '<script type="text/javascript">';

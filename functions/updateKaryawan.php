@@ -19,10 +19,12 @@ if(isset($_POST['updateKaryawan'])){
     $result_karyawan = $db->query($query_update_karyawan);
     $result_invent = $db->query($query_update_invent);
 
-    if (!$result_invent) {
-        die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_update_karyawan);
+    if (!$result_karyawan) {
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-60";';
+        echo '</script>';
     }
-    if($result_karyawan || $result_invent){
+    if($result_karyawan && $result_invent){
         echo '<script type="text/javascript">';
         echo 'window.location.href = "../web/customer_karyawan.php?success=2";';
         echo '</script>';

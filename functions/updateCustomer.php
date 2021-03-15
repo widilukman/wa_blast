@@ -17,7 +17,9 @@ if(isset($_POST['updateCustomer'])){
     
     $result_customer = $db->query($query_update_customer);
     if (!$result_customer) {
-        die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_update_customer);
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-50";';
+        echo '</script>';
     }
     if($result_customer){
         echo '<script type="text/javascript">';
