@@ -76,6 +76,10 @@ if (!isset($_SESSION['nama'])) {
                     echo '<div class="alert alert-danger alert-dismissible fade show">
                             <strong>Gagal!</strong> data Kendaraan gagal ditambahkan<br>';
                     break;
+                case '-40':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> ERROR dalam DB. data Nopol Kendaraan duplikat<br>';
+                    break;
                 case '5':
                     echo '<div class="alert alert-success alert-dismissible fade show">
                             <strong>Sukses!</strong> data customer berhasil di-import<br>';

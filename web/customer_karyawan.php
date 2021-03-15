@@ -84,6 +84,10 @@ if (!isset($_SESSION['nama'])) {
                     echo '<div class="alert alert-danger alert-dismissible fade show">
                             <strong>Gagal!</strong> data customer gagal ditambahkan<br>';
                     break;
+                case '-50':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong>ERROR dalam DB. data No.telepon customer duplikat<br>';
+                    break;
                 case '6':
                     echo '<div class="alert alert-success alert-dismissible fade show">
                             <strong>Sukses!</strong> data karyawan berhasil ditambahkan<br>';
@@ -91,6 +95,10 @@ if (!isset($_SESSION['nama'])) {
                 case '-6':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
                             <strong>Gagal!</strong> data karyawan gagal ditambahkan<br>';
+                    break;
+                case '-60':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>Gagal!</strong> ERROR dalam DB. data No. telepon karyawan duplikat<br>';
                     break;
                 case '7':
                     echo '<div class="alert alert-success alert-dismissible fade show">

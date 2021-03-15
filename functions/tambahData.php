@@ -23,7 +23,9 @@ if(isset($_POST['tambahData'])){
     
     $result_tambah = $db->query($query_tambah_data);
     if (!$result_tambah) {
-        die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_tambah_data);
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/stnkServis.php?success=-40";';
+        echo '</script>';
     }
     if($result_tambah){
         echo '<script type="text/javascript">';

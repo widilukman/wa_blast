@@ -13,7 +13,9 @@ if(isset($_POST['tambahCustomer'])){
     
     $result_tambah = $db->query($query_tambah_customer);
     if (!$result_tambah) {
-        die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_tambah_customer);
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=-50";';
+        echo '</script>';
     }
     if($result_tambah){
         echo '<script type="text/javascript">';
