@@ -43,5 +43,4 @@ while($row_cust = $result_cust->fetch_object()){
 }
 $result_cust->free();
 $result_template->free();
-$result_insert->free();
 ?>

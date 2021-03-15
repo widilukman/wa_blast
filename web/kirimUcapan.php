@@ -168,13 +168,13 @@ require_once('../functions/db_login.php');
                             </div>
                             <div class="tab-pane fade" id="nav-terkirim" role="tabpanel" aria-labelledby="nav-terkirim-tab">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered">
+                                    <table class="table table-striped table-bordered" style="table-layout: fixed;">
                                         <thead>
                                             <tr>
-                                                <th style="width: 15%;">Nama</th>
+                                                <th>Nama</th>
                                                 <th>Isi Pesan</th>
-                                                <th style="width: 130px;">No. Tujuan</th>
-                                                <th style="width: 160px;">Waktu Kirim</th>
+                                                <th>No. Tujuan</th>
+                                                <th>Waktu Kirim</th>
                                             </tr>
                                         </thead>
                                         <tbody>
