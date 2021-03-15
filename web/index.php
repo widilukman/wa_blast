@@ -62,7 +62,7 @@ if (!isset($_SESSION['nama'])) {
                                     </h2>
                                 </div>
                                 <div id="collapseSTNK" class="collapse" aria-labelledby="headingSTNK" data-parent="#accordionExample">
-                                    <div class="card-body">
+                                    <div class="table-responsive card-body">
                                         <table class="table user-table no-wrap table-striped table-bordered">
                                             <thead>
                                                 <tr>
@@ -86,7 +86,7 @@ if (!isset($_SESSION['nama'])) {
                                     </h2>
                                 </div>
                                 <div id="collapseServis" class="collapse" aria-labelledby="headingServis" data-parent="#accordionExample">
-                                    <div class="card-body">
+                                    <div class="table-responsive card-body">
                                         <table class="table user-table no-wrap table-striped table-bordered">
                                             <thead>
                                                 <tr>
@@ -105,8 +105,6 @@ if (!isset($_SESSION['nama'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
                 <div class="card text-white bg-info mb-3">
                     <div class="card-header"><i class="fas fa-birthday-cake mr-3"></i>HUT Customer</div>
                     <div class="card-body">
@@ -120,7 +118,7 @@ if (!isset($_SESSION['nama'])) {
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
+                                        <div class="table-responsive card-body">
                                             <table class="table user-table no-wrap table-striped table-bordered">
                                                 <thead>
                                                     <tr>

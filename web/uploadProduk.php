@@ -95,41 +95,43 @@ require_once('../functions/db_login.php');
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="nav-terkirim" role="tabpanel" aria-labelledby="nav-terkirim-tab">
-                                <table class="table table-striped table-bordered" style="table-layout: fixed;">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align: center; width: 15%;">Foto</th>
-                                            <th style="text-align: center;">Isi Pesan</th>
-                                            <th style="text-align: center; width: 130px;">NO. Tujuan</th>
-                                            <th style="text-align: center; width: 160px;">Waktu Kirim</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        #assign a query
-                                        $query = " SELECT * FROM broadcast_produk 
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center; width: 15%;">Foto</th>
+                                                <th style="text-align: center;">Isi Pesan</th>
+                                                <th style="text-align: center; width: 130px;">NO. Tujuan</th>
+                                                <th style="text-align: center; width: 160px;">Waktu Kirim</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            #assign a query
+                                            $query = " SELECT * FROM broadcast_produk 
                                                     WHERE DATE(tgl_input_produk) = CURRENT_DATE
                                                     ORDER BY tgl_input_produk DESC";
-                                        #execute query
-                                        $result_produk = $db->query($query);
-                                        if (!$result_produk) {
-                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query);
-                                        }
-                                        if (mysqli_num_rows($result_produk) == 0) {
-                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada pesan terkirim hari ini</td></tr>';
-                                        }
-                                        while ($row_terkirim = $result_produk->fetch_object()) {
-                                            echo
-                                            '<tr>
-                                                <td style="text-align: center;"><img class="img-fluid" src="../assets/product/'.$row_terkirim->foto.'"></td>
+                                            #execute query
+                                            $result_produk = $db->query($query);
+                                            if (!$result_produk) {
+                                                die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query);
+                                            }
+                                            if (mysqli_num_rows($result_produk) == 0) {
+                                                echo '<tr><td colspan="4" style="text-align: center;">Tidak ada pesan terkirim hari ini</td></tr>';
+                                            }
+                                            while ($row_terkirim = $result_produk->fetch_object()) {
+                                                echo
+                                                '<tr>
+                                                <td style="text-align: center;"><img class="img-fluid" src="../assets/product/' . $row_terkirim->foto . '"></td>
                                                 <td style="text-overflow: ellipsis; overflow : hidden; white-space : nowrap; min-width: 15%;">' . $row_terkirim->deskripsi . '</td>    
                                                 <td>' . $row_terkirim->no_tujuan . '</td>
                                                 <td>' . $row_terkirim->tgl_input_produk . '</td>    
                                             </tr>';
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

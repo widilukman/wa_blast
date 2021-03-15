@@ -20,7 +20,7 @@ $(document).ready(function() {
     $.fn.dataTable.moment( 'DD-MM-YYYY' ); //SORTING TANGGAL
     var table = $('#tabel-stnk').DataTable({
         lengthChange: false,
-        "order": [[ 3, "asc" ]],
+        "order": [[ 3, "asc" ], [ 5, "asc" ]],
         buttons: [ {
             extend:'excelHtml5',
             text: 'Export as Excel',

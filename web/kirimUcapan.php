@@ -100,77 +100,81 @@ require_once('../functions/db_login.php');
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="nav-ultah" role="tabpanel" aria-labelledby="nav-ultah-tab">
-                                <table class="table user-table no-wrap table-striped table-bordered" id="tabel-ultah-sekarang">
-                                    <thead>
-                                        <tr>
-                                        <th style="text-align: center;">Nama</th>
-                                        <th style="text-align: center;">Alamat</th>
-                                        <th style="text-align: center;">No. Telepon</th>
-                                        <th style="text-align: center;">HUT</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        #assign a query
-                                        $query_ultah = "SELECT * FROM customer WHERE DAY(tgl_hut) = DAY(CURRENT_DATE) AND MONTH(tgl_hut) = MONTH(CURRENT_DATE)";
-                                        #execute query
-                                        $result_ultah = $db->query($query_ultah);
-                                        if (!$result_ultah) {
-                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ultah);
-                                        }
-                                        if (mysqli_num_rows($result_ultah) == 0) {
-                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada yang berulang tahun hari ini</td></tr>';
-                                        } else {
-                                            while ($row_ultah = $result_ultah->fetch_object()) {
-                                                $hut = new DateTime($row_ultah->tgl_hut);
-                                                echo
-                                                '<tr>
+                                <div class="table-responsive">
+                                    <table class="table user-table no-wrap table-striped table-bordered" id="tabel-ultah-sekarang">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center;">Nama</th>
+                                                <th style="text-align: center;">Alamat</th>
+                                                <th style="text-align: center;">No. Telepon</th>
+                                                <th style="text-align: center;">HUT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            #assign a query
+                                            $query_ultah = "SELECT * FROM customer WHERE DAY(tgl_hut) = DAY(CURRENT_DATE) AND MONTH(tgl_hut) = MONTH(CURRENT_DATE)";
+                                            #execute query
+                                            $result_ultah = $db->query($query_ultah);
+                                            if (!$result_ultah) {
+                                                die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ultah);
+                                            }
+                                            if (mysqli_num_rows($result_ultah) == 0) {
+                                                echo '<tr><td colspan="4" style="text-align: center;">Tidak ada yang berulang tahun hari ini</td></tr>';
+                                            } else {
+                                                while ($row_ultah = $result_ultah->fetch_object()) {
+                                                    $hut = new DateTime($row_ultah->tgl_hut);
+                                                    echo
+                                                    '<tr>
                                                 <td>' . $row_ultah->nama_customer . '</td>
                                                 <td>' . $row_ultah->alamat . '</td>
                                                 <td>' . $row_ultah->no_telepon . '</td>
                                                 <td>' . date_format($hut, "d-m-Y") . '</td>
                                                 </tr>';
+                                                }
                                             }
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="nav-terkirim" role="tabpanel" aria-labelledby="nav-terkirim-tab">
-                                <table class="table table-striped table-bordered" style="table-layout: fixed;">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 15%;">Nama</th>
-                                            <th>Isi Pesan</th>
-                                            <th style="width: 130px;">No. Tujuan</th>
-                                            <th style="width: 160px;">Waktu Kirim</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        #assign a query
-                                        $query_ucapan = " SELECT * FROM broadcast_ucapan
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 15%;">Nama</th>
+                                                <th>Isi Pesan</th>
+                                                <th style="width: 130px;">No. Tujuan</th>
+                                                <th style="width: 160px;">Waktu Kirim</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            #assign a query
+                                            $query_ucapan = " SELECT * FROM broadcast_ucapan
                                                         WHERE DATE(tgl_kirim) = CURRENT_DATE ORDER BY tgl_kirim DESC";
-                                        #execute query
-                                        $result_ucapan = $db->query($query_ucapan);
-                                        if (!$result_ucapan) {
-                                            die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ucapan);
-                                        }
-                                        if (mysqli_num_rows($result_ucapan) == 0) {
-                                            echo '<tr><td colspan="4" style="text-align: center;">Tidak ada pesan terkirim hari ini</td></tr>';
-                                        }
-                                        while ($row_terkirim = $result_ucapan->fetch_object()) {
-                                            echo
-                                            '<tr>
+                                            #execute query
+                                            $result_ucapan = $db->query($query_ucapan);
+                                            if (!$result_ucapan) {
+                                                die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_ucapan);
+                                            }
+                                            if (mysqli_num_rows($result_ucapan) == 0) {
+                                                echo '<tr><td colspan="4" style="text-align: center;">Tidak ada pesan terkirim hari ini</td></tr>';
+                                            }
+                                            while ($row_terkirim = $result_ucapan->fetch_object()) {
+                                                echo
+                                                '<tr>
                                                 <td>' . $row_terkirim->nama_customer . '</td>
                                                 <td style="text-overflow: ellipsis; overflow : hidden; white-space : nowrap; min-width: 15%;">' . $row_terkirim->isi_pesan . '</td>    
                                                 <td>' . $row_terkirim->no_tujuan . '</td>
                                                 <td>' . $row_terkirim->tgl_kirim . '</td>    
                                             </tr>';
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
