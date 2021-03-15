@@ -17,7 +17,7 @@ while ($row_ultah = $result_ultah->fetch_object()) {
     
     echo
     '<tr>
-    <td>' . $i . '</td>
+    <td style="text-align:center;">' . $i . '.</td>
     <td>' . $row_ultah->nama_customer . '</td>
     <td>' . date_format($tgl_hut, "d-m-Y") . '</td>
     </tr>';
