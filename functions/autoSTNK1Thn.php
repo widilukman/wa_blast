@@ -13,6 +13,7 @@ $result_karyawan = $db->query($query_karyawan);
 //KIRIM PESAN KE WHATSAPP KARYAWAN
 
 $i = 1;
+$message = "STNK kendaraan Anda mendekati tenggat 1 tahun. Periksa kembali STNK anda";
 while($row_karyawan = $result_karyawan->fetch_object()){
     //KIRIM PESAN
     $my_apikey = "CPDDKYJ3J9ZX59V87YS4";
@@ -20,7 +21,6 @@ while($row_karyawan = $result_karyawan->fetch_object()){
     $api_url = "http://panel.rapiwha.com/send_message.php";
     $api_url .= "?apikey=" . urlencode($my_apikey);
     $api_url .= "&number=" . urlencode($destination[$i]);
-    $message = "STNK kendaraan Anda mendekati tenggat 1 tahun. Periksa kembali STNK anda";
     $api_url .= "&text=" . urlencode($message);
     $my_result_object = json_decode(file_get_contents($api_url, false));
 
