@@ -46,43 +46,43 @@ if (!isset($_SESSION['nama'])) {
             switch($_GET['success']){
                 case '1':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data customer berhasil di-update<br>';
+                            <strong>Sukses!</strong> Data customer berhasil di-update<br>';
                     break;
                 case '-1':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> data customer gagal di-update<br>';
+                            <strong>Gagal!</strong> Data customer gagal di-update<br>';
                     break;
                 case '2':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data karyawan berhasil di-update<br>';
+                            <strong>Sukses!</strong> Data karyawan berhasil di-update<br>';
                     break;
                 case '-2':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> data karyawan gagal di-update<br>';
+                            <strong>Gagal!</strong> Data karyawan gagal di-update<br>';
                     break;
                 case '3':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data customer berhasil dihapus<br>';
+                            <strong>Sukses!</strong> Data customer berhasil dihapus<br>';
                     break;
                 case '-3':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> data customer gagal dihapus<br>';
+                            <strong>Gagal!</strong> Data customer gagal dihapus<br>';
                     break;
                 case '4':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data karyawan berhasil dihapus<br>';
+                            <strong>Sukses!</strong> Data karyawan berhasil dihapus<br>';
                     break;
                 case '-4':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> data karyawan gagal dihapus<br>';
+                            <strong>Gagal!</strong> Data karyawan gagal dihapus<br>';
                     break;
                 case '5':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data customer berhasil ditambahkan<br>';
+                            <strong>Sukses!</strong> Data customer berhasil ditambahkan<br>';
                     break;
                 case '-5':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> data customer gagal ditambahkan<br>';
+                            <strong>Gagal!</strong> Data customer gagal ditambahkan<br>';
                     break;
                 case '-50':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
@@ -90,11 +90,11 @@ if (!isset($_SESSION['nama'])) {
                     break;
                 case '6':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data karyawan berhasil ditambahkan<br>';
+                            <strong>Sukses!</strong> Data karyawan berhasil ditambahkan<br>';
                     break;
                 case '-6':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> data karyawan gagal ditambahkan<br>';
+                            <strong>Gagal!</strong> Data karyawan gagal ditambahkan<br>';
                     break;
                 case '-60':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
@@ -102,15 +102,11 @@ if (!isset($_SESSION['nama'])) {
                     break;
                 case '7':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> data customer berhasil di-import (Terdapat '.$_GET['duplikat'].' data duplikat)<br>';
+                            <strong>Sukses!</strong> Data karyawan berhasil di-import (Terdapat '.$_GET['duplikat'].' data duplikat)<br>';
                     break;
                 case '-7':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> data customer gagal di-import<br>';
-                    break;
-                case '-70':
-                    echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> ERROR dalam DB. data customer duplikat dengan data lain<br>';
+                            <strong>Gagal!</strong> Seluruh data customer gagal di-import<br>';
                     break;
             }
             echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">

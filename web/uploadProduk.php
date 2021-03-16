@@ -98,6 +98,13 @@ require_once('../functions/db_login.php');
                                                 <input type="file" class="" name="gambarProduk" id="fotoCover" onchange="showPreview(event);" required>
                                             </div>
                                         </div>
+                                        <hr>
+                                        <div class="row mt-2">
+                                            <div class="col">
+                                                <label for="linkGambar"><h4>Link Gambar</h4></label>
+                                                <input type="text" class="form-control" name="linkGambar" id="linkFotoCover" required>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="preview">
                                         <img class="img-fluid" id="fotoCoverPreview" style="width: 300px;">

@@ -20,9 +20,10 @@ if (isset($_POST["uploadProduk"])) {
     $i = 1;
     while($row_cust = $result_cust->fetch_object()){
         $my_apikey = $_POST['selectedApi'];
+        $link_gambar = $_POST['linkGambar'];
         $destination[$i] = $row_cust->no_telepon;
         //Pesan Gambar
-        $message = "https://n2.sdlcdn.com/imgs/a/a/1/Chromozome_Yamaha_102025_m_1_2x-4ab77.jpg"; //LINK GAMBAR MASIH DARI GOOGLE!!!
+        $message = $link_gambar;
         $api_url = "http://panel.rapiwha.com/send_message.php";
         $api_url .= "?apikey=" . urlencode($my_apikey);
         $api_url .= "&number=" . urlencode($destination[$i]);
@@ -46,14 +47,14 @@ if (isset($_POST["uploadProduk"])) {
         $i++;
     }
     $result_cust->free();
-    echo "<br>Result: " . $my_result_object->success;
-    echo "<br>Description: " . $my_result_object->description;
-    echo "<br>Code: " . $my_result_object->result_code;
+    // echo "<br>Result: " . $my_result_object->success;
+    // echo "<br>Description: " . $my_result_object->description;
+    // echo "<br>Code: " . $my_result_object->result_code;
 
     echo '<script type="text/javascript">';
-    echo 'window.location.href = "../web/uploadProduk.php?succes=1"';
+    echo 'window.location.href = "../web/uploadProduk.php?success=1"';
     echo '</script>';
 }
 echo '<script type="text/javascript">';
-echo 'window.location.href = "../web/uploadProduk.php?succes=-1"';
+echo 'window.location.href = "../web/uploadProduk.php?success=-1"';
 echo '</script>';
