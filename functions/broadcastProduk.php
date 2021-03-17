@@ -4,9 +4,6 @@ require_once('db_login.php');
 
 // UPLOAD FOTO KE DATABASE
 if (isset($_POST["uploadProduk"])) {
-    $foto = $_FILES['gambarProduk']['name'];
-    $foto_temp = $_FILES['gambarProduk']['tmp_name'];
-    move_uploaded_file($foto_temp, "../assets/product/$foto");
     $deskripsi = $_POST['deskripsi'];
     #QUERY untuk mengambil data dari customer
     $query_cust = "SELECT * FROM customer";
@@ -38,8 +35,8 @@ if (isset($_POST["uploadProduk"])) {
         $my_result_object1 = json_decode(file_get_contents($api_url1, false));
 
         #QUERY untuk INSERT Produk terkirim ke database
-        $query = "INSERT INTO broadcast_produk (foto, deskripsi, no_tujuan)
-        VALUES ('$foto', '$deskripsi', '$destination[$i]')";
+        $query = "INSERT INTO broadcast_produk (link_gambar, deskripsi, no_tujuan)
+        VALUES ('$link_gambar', '$deskripsi', '$destination[$i]')";
         $result_foto = $db->query($query);
         if(!$result_foto){
             die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query);

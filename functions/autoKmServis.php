@@ -4,7 +4,7 @@ require_once('db_login.php');
 
 //QUERY MENGAMBIL DATA KARYAWAN
 $query_karyawan = "SELECT * FROM invent_kendaraan 
-                    WHERE tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)";
+                    WHERE servis_pada_km - km_terbaru < 1000";
 
 //EKSESKUSI QUERY
 $result_karyawan = $db->query($query_karyawan);
@@ -12,7 +12,7 @@ $result_karyawan = $db->query($query_karyawan);
 //KIRIM PESAN KE WHATSAPP KARYAWAN
 
 $i = 1;
-$message = "Kendaraan Anda mendekati saatnya servis. Periksa kembali tanggal servis kendaraan Anda";
+$message = "KM Kendaraan Anda hampir mendekati saatnya servis. Periksa kembali KM servis kendaraan Anda";
 while($row_karyawan = $result_karyawan->fetch_object()){
     //KIRIM PESAN
     $my_apikey = "CPDDKYJ3J9ZX59V87YS4";

@@ -3,9 +3,8 @@
 require_once('db_login.php');
 
 //QUERY MENGAMBIL DATA KARYAWAN
-$query_karyawan = "SELECT * FROM invent_kendaraan JOIN karyawan ON invent_kendaraan.holder = karyawan.nama_karyawan
-                WHERE DATE_ADD(tgl_stnk_5_thn, INTERVAL YEAR(CURDATE())-YEAR(tgl_stnk_5_thn) + IF(DAYOFYEAR(CURDATE()) > DAYOFYEAR(tgl_stnk_5_thn),1,0) YEAR) 
-                BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY)";
+$query_karyawan = "SELECT * FROM invent_kendaraan 
+                    WHERE tgl_stnk_5_thn BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)";
 
 //EKSESKUSI QUERY
 $result_karyawan = $db->query($query_karyawan);

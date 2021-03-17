@@ -2,7 +2,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                © 2021 WA Blast</a>
+                © 2021 WA Blast - By Widi Lukman S. PKL UNDIP</a>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

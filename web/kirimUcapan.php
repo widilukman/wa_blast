@@ -132,10 +132,10 @@ require_once('../functions/db_login.php');
                                     <table class="table user-table no-wrap table-striped table-bordered" id="tabel-ultah-sekarang">
                                         <thead>
                                             <tr>
-                                                <th style="text-align: center;">Nama</th>
-                                                <th style="text-align: center;">Alamat</th>
-                                                <th style="text-align: center;">No. Telepon</th>
-                                                <th style="text-align: center;">HUT</th>
+                                                <th style="text-align: center; width: 10rem;">Nama</th>
+                                                <th style="text-align: center; width: 20rem;">Alamat</th>
+                                                <th style="text-align: center; width: 9rem;">No. Telepon</th>
+                                                <th style="text-align: center; width: 6rem;">HUT</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -171,10 +171,10 @@ require_once('../functions/db_login.php');
                                     <table class="table table-striped table-bordered" style="table-layout: fixed;">
                                         <thead>
                                             <tr>
-                                                <th>Nama</th>
-                                                <th>Isi Pesan</th>
-                                                <th>No. Tujuan</th>
-                                                <th>Waktu Kirim</th>
+                                                <th style="text-align: center; width: 10rem;">Nama</th>
+                                                <th style="text-align: center; width: 20rem;">Isi Pesan</th>
+                                                <th style="text-align: center; width: 9rem;">No. Tujuan</th>
+                                                <th style="text-align: center; width: 10rem;">Waktu Kirim</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -19,26 +19,6 @@ require_once('../functions/db_login.php');
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
-    <?php 
-        if(isset($_GET['success'])){
-            echo '<div class="col">';
-            switch($_GET['success']){
-                case '1':
-                    echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> pesan berhasil dikirimkan ke customer<br>';
-                    break;
-                case '-1':
-                    echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>gagal!</strong> pesan gagal dikirimkan ke customer<br>';
-                    break;
-            }
-            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>';
-            echo '</div>';
-        }
-        ?>
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -64,6 +44,26 @@ require_once('../functions/db_login.php');
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
+        <?php 
+        if(isset($_GET['success'])){
+            echo '<div class="col">';
+            switch($_GET['success']){
+                case '1':
+                    echo '<div class="alert alert-success alert-dismissible fade show">
+                            <strong>Sukses!</strong> pesan berhasil dikirimkan ke customer<br>';
+                    break;
+                case '-1':
+                    echo '<div class="alert alert-danger alert-dismissible fade show">
+                            <strong>gagal!</strong> pesan gagal dikirimkan ke customer<br>';
+                    break;
+            }
+            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+            echo '</div>';
+        }
+        ?>
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->
@@ -93,22 +93,22 @@ require_once('../functions/db_login.php');
                                         <label for="fotoCover">
                                             <h4>Upload Foto</h4>
                                         </label>
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col">
                                                 <input type="file" class="" name="gambarProduk" id="fotoCover" onchange="showPreview(event);" required>
                                             </div>
                                         </div>
-                                        <hr>
+                                        <hr> -->
                                         <div class="row mt-2">
                                             <div class="col">
-                                                <label for="linkGambar"><h4>Link Gambar</h4></label>
-                                                <input type="text" class="form-control" name="linkGambar" id="linkFotoCover" required>
+                                                <label for="linkGambar"><h5>Masukkan Link Gambar</h5></label>
+                                                <input type="text" class="form-control" name="linkGambar" id="linkFotoCover" placeholder="contoh : https://..../foto.jpg" required>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="preview">
+                                    <!-- <div class="preview">
                                         <img class="img-fluid" id="fotoCoverPreview" style="width: 300px;">
-                                    </div>
+                                    </div> -->
                                     <hr>
                                     <div class="form-group">
                                         <label for="deskripsi">
@@ -123,13 +123,13 @@ require_once('../functions/db_login.php');
                             </div>
                             <div class="tab-pane fade" id="nav-terkirim" role="tabpanel" aria-labelledby="nav-terkirim-tab">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered">
+                                    <table class="table table-striped table-bordered" style="table-layout: fixed;">
                                         <thead>
                                             <tr>
-                                                <th style="text-align: center; width: 15%;">Foto</th>
-                                                <th style="text-align: center;">Isi Pesan</th>
-                                                <th style="text-align: center; width: 130px;">NO. Tujuan</th>
-                                                <th style="text-align: center; width: 160px;">Waktu Kirim</th>
+                                                <th style="text-align: center; width: 5rem;">#</th>
+                                                <th style="text-align: center; width: 20rem;">Isi Pesan</th>
+                                                <th style="text-align: center; width: 9rem;">No. Tujuan</th>
+                                                <th style="text-align: center; width: 10rem;">Waktu Kirim</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -146,14 +146,16 @@ require_once('../functions/db_login.php');
                                             if (mysqli_num_rows($result_produk) == 0) {
                                                 echo '<tr><td colspan="4" style="text-align: center;">Tidak ada pesan terkirim hari ini</td></tr>';
                                             }
+                                            $i = 1;
                                             while ($row_terkirim = $result_produk->fetch_object()) {
                                                 echo
                                                 '<tr>
-                                                <td style="text-align: center;"><img class="img-fluid" src="../assets/product/' . $row_terkirim->foto . '"></td>
+                                                <td style="text-align: center;">' . $i . '.</td>
                                                 <td style="text-overflow: ellipsis; overflow : hidden; white-space : nowrap; min-width: 15%;">' . $row_terkirim->deskripsi . '</td>    
                                                 <td>' . $row_terkirim->no_tujuan . '</td>
                                                 <td>' . $row_terkirim->tgl_input_produk . '</td>    
                                             </tr>';
+                                            $i++;
                                             }
                                             ?>
                                         </tbody>

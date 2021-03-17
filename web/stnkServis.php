@@ -114,6 +114,7 @@ if (!isset($_SESSION['nama'])) {
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-link active" id="nav-stnk-tab" data-toggle="tab" href="#nav-stnk" role="tab" aria-controls="nav-stnk" aria-selected="true">STNK</a>
                         <a class="nav-link" id="nav-servis-tab" data-toggle="tab" href="#nav-servis" role="tab" aria-controls="nav-servis" aria-selected="true">Servis</a>
+                        <a class="nav-link" id="nav-STNKServis-tab" data-toggle="tab" href="#nav-STNKServis" role="tab" aria-controls="nav-STNKServis" aria-selected="true">Export STNK & Servis</a>
                         <a class="nav-link" id="nav-terkirim-tab" data-toggle="tab" href="#import-kendaraan" role="tab" aria-controls="nav-terkirim" aria-selected="false">Import Data</a>
                     </div>
                 </nav>
@@ -174,6 +175,33 @@ if (!isset($_SESSION['nama'])) {
                             <?php include('modalEditServis.php'); ?>
                             <?php include('modalHapus.php'); ?>
                             <!-- MODAL -->
+                            <div class="tab-pane fade" id="nav-STNKServis" role="tabpanel" aria-labelledby="nav-STNKServis-tab">
+                                <h3>Export Data STNK & Servis</h3>
+                                <hr>
+                                <div class="table-responsive" id="card-STNKServis">
+                                    <table class="table user-table no-wrap table-striped table-bordered" id="tabel-STNKServis">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">Nopol</th>
+                                                <th class="border-top-0">Jenis Kendaraan</th>
+                                                <th class="border-top-0">Tahun Kendaraan</th>
+                                                <th class="border-top-0">Holder</th>
+                                                <th class="border-top-0">Wilayah</th>
+                                                <th class="border-top-0">Tenggat 1 Thn</th>
+                                                <th class="border-top-0">Tenggat 5 Thn</th>
+                                                <th class="border-top-0">Tgl Servis Terakhir</th>
+                                                <th class="border-top-0">Servis ke-</th>
+                                                <th class="border-top-0">KM Terbaru</th>
+                                                <th class="border-top-0">KM Servis</th>
+                                                <th class="border-top-0">Tgl Servis Selanjutnya</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php include('../functions/tableSTNKServis.php'); ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             <div class="tab-pane fade" id="import-kendaraan" role="tabpanel" aria-labelledby="import-kendaraan-tab">
                                 <h3>Import ke Database</h3>
                                 <hr>

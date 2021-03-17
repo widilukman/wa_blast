@@ -14,8 +14,9 @@
                     <input type="hidden" name="id_karyawan" id="id_karyawan">
                     <div class="d-flex justify-content-center">
                         <p style="font-size: medium; text-align:center;">
-                        <br><b style="color: red; font-size:large;">Peringatan!</b>
-                        <br> Anda juga akan menghapus data dalam inventaris kendaraan.
+                        <br><strong style="color: red; font-size:large;">Peringatan!</strong>
+                        <br>Anda juga akan menghapus data STNK & Servis kendaraan.
+                        <br>apabila karyawan masih sebagai holder.<br>
                         <br>Apakah anda yakin ingin menghapus data ini?</p>
                     </div>
                     <br>

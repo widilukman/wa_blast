@@ -107,3 +107,26 @@ $(document).ready(function() {
     table.buttons().container()
         .appendTo( '#card-karyawan .col-md-6:eq(0)' );
 } );
+
+//Datatables Untuk EXPORT STNK & Servis
+$(document).ready(function() {
+    var table = $('#tabel-STNKServis').DataTable({
+        lengthChange: false,
+        buttons: [ {
+            extend:'excelHtml5',
+            text: 'Export as Excel',
+            title: 'Data_STNK_Servis',
+            exportOptions: {
+                columns: ':visible'
+            }
+        }, 
+        'colvis'],
+        columnDefs: [
+            { orderable: false, targets: [0, 1, 3, 4, 8, 9, 10] }
+        ],
+        "pageLength": 5
+    } );
+
+    table.buttons().container()
+        .appendTo( '#card-STNKServis .col-md-6:eq(0)' );
+} );

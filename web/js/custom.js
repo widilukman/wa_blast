@@ -48,4 +48,44 @@ $(document).ready(function() {
             $(this).remove();
         });
     }, 4000);
-}); 
+});
+
+//Script untuk hitung jumlah STNK 1 tahun tenggat 1 minggu
+$(function() {
+    var stnk1Thn = document.getElementById("tableSTNK1Thn");
+    var hitungBarisBody = stnk1Thn.tBodies[0].rows.length;
+    
+    $("#badgeSTNK1Thn").text(hitungBarisBody);
+});
+
+//Script untuk hitung jumlah STNK 5 tahun tenggat 1 minggu
+$(function() {
+    var stnk5Thn = document.getElementById("tableSTNK5Thn");
+    var hitungBarisBody = stnk5Thn.tBodies[0].rows.length;
+    
+    $("#badgeSTNK5Thn").text(hitungBarisBody);
+});
+
+//Script untuk hitung jumlah tenggat servis 1 minggu
+$(function() {
+    var TglServis = document.getElementById("tableTglServis");
+    var hitungBarisBody = TglServis.tBodies[0].rows.length;
+    
+    $("#badgeTglServis").text(hitungBarisBody);
+});
+
+//Script untuk hitung jumlah kendaraan mendekati Km servis
+$(function() {
+    var KmServis = document.getElementById("tableKmServis");
+    var hitungBarisBody = KmServis.tBodies[0].rows.length;
+    
+    $("#badgeKmServis").text(hitungBarisBody);
+});
+
+//Script untuk hitung jumlah HUT customer 1 minggu
+$(function() {
+    var HUT = document.getElementById("tableHUT");
+    var hitungBarisBody = HUT.tBodies[0].rows.length;
+    
+    $("#badgeHUT").text(hitungBarisBody);
+});
