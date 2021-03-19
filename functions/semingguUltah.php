@@ -5,7 +5,7 @@ require_once('db_login.php');
 #assign a query
 $query_ultah = "SELECT * FROM customer 
                 WHERE DATE_ADD(tgl_hut, INTERVAL YEAR(CURDATE())-YEAR(tgl_hut) + IF(DAYOFYEAR(CURDATE()) > DAYOFYEAR(tgl_hut),1,0) YEAR) 
-                BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY)
+                BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 8 DAY)
                 ORDER BY DAY(tgl_hut) ASC";
 #execute query
 $result_ultah = $db->query($query_ultah);
