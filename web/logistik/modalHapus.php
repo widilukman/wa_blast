@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-hapus-karyawan" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal-hapus" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,16 +8,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body hapusKaryawan" id="modalHapusKaryawan">
-                <form action="../functions/hapusKaryawan.php" method="POST">
-                    <input type="hidden" name="nopol_karyawan" id="nopol_karyawan">
-                    <input type="hidden" name="id_karyawan" id="id_karyawan">
+            <div class="modal-body" id="modalHapus">
+                <form action="../../functions/delete.php" method="POST">
+                    <input type="hidden" name="nopol" id="nopolHapus">
                     <div class="d-flex justify-content-center">
-                        <p style="font-size: medium; text-align:center;">
-                        <br><strong style="color: red; font-size:large;">Peringatan!</strong>
-                        <br>Anda juga akan menghapus data STNK & Servis kendaraan
-                        <br>apabila karyawan masih sebagai holder.<br>
-                        <br>Apakah anda yakin ingin menghapus data ini?</p>
+                        <p style="font-size: medium;">Apakah anda yakin ingin menghapus data ini?</p>
                     </div>
                     <br>
                     <br>
@@ -28,7 +23,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         </div>
                         <div class="col">
-                            <button type="submit" name="hapusKaryawan" class="btn btn-danger">Hapus</button>
+                            <button type="submit" name="hapusData" class="btn btn-danger">Hapus</button>
                         </div>
                     </div>
                 </form>

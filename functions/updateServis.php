@@ -1,4 +1,6 @@
 <?php
+session_start(); //insisalisasi session
+
 require_once('db_login.php');
 
 if(isset($_POST['updateServis'])){
@@ -20,10 +22,15 @@ if(isset($_POST['updateServis'])){
                             WHERE nopol = '$nopol'";
     
     $result_servis = $db->query($query_update_servis);
-    if (!$result_servis) {
-        die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_update_servis);
-    }
-    if($result_servis){
+    if($result_servis && ($_SESSION['kode'] == 'G0139' || $_SESSION['kode'] == 'G0993')){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/logistik/stnkServis_logistik.php?success=2";';
+        echo '</script>';
+    }elseif(!$result_servis && ($_SESSION['kode'] == 'G0139' || $_SESSION['kode'] == 'G0993')){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/logistik/stnkServis_logistik.php?success=-2";';
+        echo '</script>';
+    }elseif($result_servis){
         echo '<script type="text/javascript">';
         echo 'window.location.href = "../web/stnkServis.php?success=2";';
         echo '</script>';
@@ -32,5 +39,18 @@ if(isset($_POST['updateServis'])){
         echo 'window.location.href = "../web/stnkServis.php?success=-2";';
         echo '</script>';
     }
+}
+if($_SESSION['kode'] == 'G0139' || $_SESSION['kode'] == 'G0993'){
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/logistik/stnkServis_logistik.php";';
+    echo '</script>';
+}elseif($_SESSION['kode'] == 'G0089'){
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/marcomm/index_marcomm.php"';
+    echo '</script>';
+}else{
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/logistik/stnkServis.php";';
+    echo '</script>';
 }
 ?>

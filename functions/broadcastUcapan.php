@@ -1,4 +1,6 @@
 <?php
+session_start(); //insisalisasi session
+
 #include our login information
 require_once('db_login.php');
 
@@ -8,10 +10,15 @@ if(isset($_POST['updateTemplate'])){
     $query_update_template = "UPDATE template SET template_ucapan = '$template_update'";
 
     $result_update_template = $db->query($query_update_template);
-    if (!$result_update_template) {
-        die ("Could not query the database: <br>".$db->error."<br>Query: ".$query_update_template);
-    }
-    if($result_update_template){
+    if($result_update_template && $_SESSION['kode'] == 'G0089'){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/marcomm/kirimUcapan_marcomm.php?success=2";';
+        echo '</script>';
+    }elseif(!$result_update_template && $_SESSION['kode'] == 'G0089'){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/marcomm/kirimUcapan_marcomm.php?success=-2";';
+        echo '</script>';
+    }elseif($result_update_template){
         echo '<script type="text/javascript">';
         echo 'window.location.href = "../web/kirimUcapan.php?success=2";';
         echo '</script>';
@@ -20,18 +27,15 @@ if(isset($_POST['updateTemplate'])){
         echo 'window.location.href = "../web/kirimUcapan.php?success=-2";';
         echo '</script>';
     }
-    $result_update_template->free();
 }
 
 //MENGIRIM PESAN BROADCAST KE SEMUA CUSTOMER
 if(isset($_POST['broadcastUcapan'])){
     //QUERY MENGAMBIL DATA CUSTOMER BERULANG TAHUN HARI INI
     $query_cust = "SELECT * FROM customer WHERE DAY(tgl_hut) = DAY(CURRENT_DATE) AND MONTH(tgl_hut) = MONTH(CURRENT_DATE)";
+    
     //EKSESKUSI QUERY
     $result_cust = $db->query($query_cust);
-    if (!$query_cust) {
-        die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query_cust);
-    }
 
     //KIRIM PESAN KE WHATSAPP CUSTOMER
     $tgl_sekarang = new DateTime();
@@ -66,15 +70,36 @@ if(isset($_POST['broadcastUcapan'])){
         }
         $i++;
     }
-    if($result_cust){
+    if($result_cust && $_SESSION['kode'] == 'G0089'){
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/kirimUcapan.php?success=1";';
+        echo 'window.location.href = "../web/marcomm/kirimUcapan_marcomm.php?success=1"';
+        echo '</script>';
+    }elseif(!$result_cust && $_SESSION['kode'] == 'G0089'){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/marcomm/kirimUcapan_marcomm.php?success=-1"';
+        echo '</script>';
+    }elseif($result_cust && $_SESSION['kode'] != 'G0089'){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/kirimUcapan.php?success=1"';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/kirimUcapan.php?success=-1";';
+        echo 'window.location.href = "../web/kirimUcapan.php?success=-1"';
         echo '</script>';
     }
     $result_cust->free();
+}
+if($_SESSION['kode'] == 'G0089'){
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/marcomm/kirimUcapan_marcomm.php"';
+    echo '</script>';
+}elseif($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/marcomm/index_logistik.php"';
+    echo '</script>';
+}else{
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/kirimUcapan.php"';
+    echo '</script>';
 }
 ?>

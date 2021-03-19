@@ -1,4 +1,6 @@
 <?php
+session_start(); //insisalisasi session
+
 require_once('db_login.php');
 
 if(isset($_POST['tambahData'])){
@@ -22,19 +24,35 @@ if(isset($_POST['tambahData'])){
                             '$tenggat_5thn', '$tgl_servis_terakhir', '$servis_ke', '$km_terbaru', '$km_servis', '$servis_berikutnya')";
     
     $result_tambah = $db->query($query_tambah_data);
-    if (!$result_tambah) {
+    if($result_tambah && ($_SESSION['kode'] == 'G0139' || $_SESSION['kode'] == 'G0993')){
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/stnkServis.php?success=-40";';
+        echo 'window.location.href = "../web/logistik/stnkServis_logistik.php?success=4";';
         echo '</script>';
-    }
-    if($result_tambah){
+    }elseif(!$result_tambah && ($_SESSION['kode'] == 'G0139' || $_SESSION['kode'] == 'G0993')){
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/stnkServis.php?success=4";';
+        echo 'window.location.href = "../web/logistik/stnkServis_logistik.php?success=-4"';
+        echo '</script>';
+    }elseif($result_tambah){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/stnkServis.php?success=4"';
         echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/stnkServis.php?success=-4";';
+        echo 'window.location.href = "../web/stnkServis.php?success=-4"';
         echo '</script>';
     }
+}
+if($_SESSION['kode'] == 'G0139' || $_SESSION['kode'] == 'G0993'){
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/logistik/stnkServis_logistik.php"';
+    echo '</script>';
+}elseif($_SESSION['kode'] == 'G0089'){
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/marcomm/index_marcomm.php"';
+    echo '</script>';
+}else{
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/logistik/stnkServis.php"';
+    echo '</script>';
 }
 ?>

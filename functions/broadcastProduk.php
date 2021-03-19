@@ -1,4 +1,6 @@
 <?php
+session_start(); //insisalisasi session
+
 #include our login information
 require_once('db_login.php');
 
@@ -19,6 +21,7 @@ if (isset($_POST["uploadProduk"])) {
         $my_apikey = $_POST['selectedApi'];
         $link_gambar = $_POST['linkGambar'];
         $destination[$i] = $row_cust->no_telepon;
+
         //Pesan Gambar
         $message = $link_gambar;
         $api_url = "http://panel.rapiwha.com/send_message.php";
@@ -26,6 +29,7 @@ if (isset($_POST["uploadProduk"])) {
         $api_url .= "&number=" . urlencode($destination[$i]);
         $api_url .= "&text=" . urlencode($message);
         $my_result_object = json_decode(file_get_contents($api_url, false));
+
         //Pesan Text
         $api_url1 = "http://panel.rapiwha.com/send_message.php";
         $api_url1 .= "?apikey=" . urlencode($my_apikey);
@@ -48,10 +52,35 @@ if (isset($_POST["uploadProduk"])) {
     // echo "<br>Description: " . $my_result_object->description;
     // echo "<br>Code: " . $my_result_object->result_code;
 
+    if($result_cust && $_SESSION['kode'] == 'G0089'){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/marcomm/uploadProduk_marcomm.php?success=1"';
+        echo '</script>';
+    }elseif(!$result_cust && $_SESSION['kode'] == 'G0089'){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/marcomm/uploadProduk_marcomm.php?success=-1"';
+        echo '</script>';
+    }elseif($result_cust && $_SESSION['kode'] != 'G0089'){
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/uploadProduk.php?success=1"';
+        echo '</script>';
+    }else{
+        echo '<script type="text/javascript">';
+        echo 'window.location.href = "../web/uploadProduk.php?success=-1"';
+        echo '</script>';
+    }
+}
+if($_SESSION['kode'] == 'G0089'){
     echo '<script type="text/javascript">';
-    echo 'window.location.href = "../web/uploadProduk.php?success=1"';
+    echo 'window.location.href = "../web/marcomm/uploadProduk_marcomm.php"';
+    echo '</script>';
+}elseif($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/marcomm/index_logistik.php"';
+    echo '</script>';
+}else{
+    echo '<script type="text/javascript">';
+    echo 'window.location.href = "../web/uploadProduk.php"';
     echo '</script>';
 }
-echo '<script type="text/javascript">';
-echo 'window.location.href = "../web/uploadProduk.php?success=-1"';
-echo '</script>';
+?>

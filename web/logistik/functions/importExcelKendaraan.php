@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 ?>
 <?php
@@ -44,11 +44,11 @@ if (isset($_POST['import'])) {
                                 VALUES ('$holder', '$no_telepon')");
         }
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/stnkServis.php?success=5"';
+        echo 'window.location.href = "../logistik/stnkServis_logistik.php?success=5"';
         echo '</script>';
     }
     echo '<script type="text/javascript">';
-    echo 'window.location.href = "../web/stnkServis.php?success=-5"';
+    echo 'window.location.href = "../logistik/stnkServis_logistik.php?success=-5";';
     echo '</script>';
 }
 ?>

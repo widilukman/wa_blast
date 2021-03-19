@@ -5,6 +5,12 @@ if (!isset($_SESSION['nama'])) {
 } else {
     $nama = $_SESSION['nama'];
 }
+
+if($_SESSION['kode'] == 'G0089'){
+    header('Location: ./marcomm/index_marcomm.php');
+}elseif($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
+    header('Location: ./logistik/index_logistik.php');
+}
 ?>
 
 <?php $title = "Customer/Karyawan | WA BLast"; ?>
@@ -46,67 +52,67 @@ if (!isset($_SESSION['nama'])) {
             switch($_GET['success']){
                 case '1':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> Data customer berhasil di-update<br>';
+                            <strong>SUKSES!</strong> Data customer berhasil di-update<br>';
                     break;
                 case '-1':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> Data customer gagal di-update<br>';
+                            <strong>GAGAL!</strong> Data customer gagal di-update<br>';
                     break;
                 case '2':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> Data karyawan berhasil di-update<br>';
+                            <strong>SUKSES!</strong> Data karyawan berhasil di-update<br>';
                     break;
                 case '-2':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> Data karyawan gagal di-update<br>';
+                            <strong>GAGAL!</strong> Data karyawan gagal di-update<br>';
                     break;
                 case '3':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> Data customer berhasil dihapus<br>';
+                            <strong>SUKSES!</strong> Data customer berhasil dihapus<br>';
                     break;
                 case '-3':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> Data customer gagal dihapus<br>';
+                            <strong>GAGAL!</strong> Data customer gagal dihapus<br>';
                     break;
                 case '4':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> Data karyawan berhasil dihapus<br>';
+                            <strong>SUKSES!</strong> Data karyawan berhasil dihapus<br>';
                     break;
                 case '-4':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> Data karyawan gagal dihapus<br>';
+                            <strong>GAGAL!</strong> Data karyawan gagal dihapus<br>';
                     break;
                 case '5':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> Data customer berhasil ditambahkan<br>';
+                            <strong>SUKSES!</strong> Data customer berhasil ditambahkan<br>';
                     break;
                 case '-5':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> Data customer gagal ditambahkan<br>';
+                            <strong>GAGAL!</strong> Data customer gagal ditambahkan<br>';
                     break;
                 case '-50':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> ERROR dalam DB. data No.telepon customer duplikat<br>';
+                            <strong>GAGAL!</strong> No.telepon customer duplikat<br>';
                     break;
                 case '6':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> Data karyawan berhasil ditambahkan<br>';
+                            <strong>SUKSES!</strong> Data karyawan berhasil ditambahkan<br>';
                     break;
                 case '-6':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> Data karyawan gagal ditambahkan<br>';
+                            <strong>GAGAL!</strong> Data karyawan gagal ditambahkan<br>';
                     break;
                 case '-60':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> ERROR dalam DB. data No. telepon karyawan duplikat<br>';
+                            <strong>GAGAL!</strong> data No. telepon karyawan duplikat<br>';
                     break;
                 case '7':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>Sukses!</strong> Data karyawan berhasil di-import (Terdapat '.$_GET['duplikat'].' data duplikat)<br>';
+                            <strong>SUKSES!</strong> data customer berhasil di-import<br>';
                     break;
                 case '-7':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>Gagal!</strong> Seluruh data customer gagal di-import<br>';
+                            <strong>GAGAL!</strong> data customer gagal di-import<br>';
                     break;
             }
             echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -202,6 +208,12 @@ if (!isset($_SESSION['nama'])) {
                                             <div class="row mt-3">
                                                 <div class="col">
                                                     <button type="submit" name="importCustomer" value="import" class="btn btn-info">Import</button>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col">
+                                                    <p class="mt-5">Keterangan : 
+                                                    <br><b>Data customer dengan nomor telepon duplikat akan otomatis tidak ter-import</b></p>
                                                 </div>
                                             </div>
                                         </form>

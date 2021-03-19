@@ -31,7 +31,14 @@ if (isset($_POST['login'])) {
             if ($result->num_rows > 0) {   //login berhasil
                 $row = $result->fetch_object();
                 $_SESSION['nama'] = $row->nama;
-                header('location: index.php');
+                $_SESSION['kode'] = $row->kode;
+                if ($_SESSION['kode'] == 'G0089') {
+                    header('Location: ./marcomm/index_marcomm.php');
+                } elseif ($_SESSION['kode'] == 'G0139' || $_SESSION['kode'] == 'G0993') {
+                    header('Location: ./logistik/index_logistik.php');
+                } else {
+                    header('Location: index.php');
+                }
                 exit;
             } else {   //login gagal
                 $error_email = 'kombinasi username dan password salah';

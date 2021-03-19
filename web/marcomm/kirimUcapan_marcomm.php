@@ -1,24 +1,24 @@
 <?php
 session_start(); //insisalisasi session
 if (!isset($_SESSION['nama'])) {
-    header('Location: login.php');
+    header('Location: ../login.php');
 } else {
     $nama = $_SESSION['nama'];
 }
 
-if($_SESSION['kode'] == 'G0089'){
-    header('Location: ./marcomm/index_marcomm.php');
-}elseif($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
-    header('Location: ./logistik/index_logistik.php');
+if($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
+    header('Location: ../logistik/index_logistik.php');
+}elseif($_SESSION['kode'] != 'G0089'){
+    header('Location: ../index.php');
 }
 ?>
 <?php
-require_once('../functions/db_login.php');
+require_once('../../functions/db_login.php');
 ?>
 
 <?php $title = "Kirim Ucapan | WA Blast"; ?>
-<?php include("./templates/header.php"); ?>
-<?php include("./templates/sidebar.php"); ?>
+<?php include("./template_marcomm/header.php"); ?>
+<?php include("./template_marcomm/sidebar.php"); ?>
 
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
@@ -34,7 +34,7 @@ require_once('../functions/db_login.php');
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index_marcomm.php">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Kirim Ucapan</li>
                         </ol>
                     </nav>
@@ -93,13 +93,13 @@ require_once('../functions/db_login.php');
                     <div class="card-body">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-broadcast" role="tabpanel" aria-labelledby="nav-broadcast-tab">
-                                <form method="POST" action="../functions/broadcastUcapan.php" enctype="multipart/form-data">
+                                <form method="POST" action="../../functions/broadcastUcapan.php" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="setting-wa">
                                             <h4>Setting WA</h4><b>Pilih API KEY :</b>
                                         </label>
                                         <select class="custom-select" name="selectedApi" id="selectApiUltah" onchange="selectApi()">
-                                            <?php include('../functions/pilihAPI.php'); ?>
+                                            <?php include('../../functions/pilihAPI.php'); ?>
                                         </select>
                                     </div>
                                     <hr>
@@ -237,4 +237,4 @@ require_once('../functions/db_login.php');
         }
     </script>
 
-    <?php include("./templates/footer.php"); ?>
+    <?php include("./template_marcomm/footer.php"); ?>

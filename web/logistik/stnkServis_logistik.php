@@ -1,21 +1,21 @@
 <?php
 session_start(); //insisalisasi session
 if (!isset($_SESSION['nama'])) {
-    header('Location: login.php');
+    header('Location: ../login.php');
 } else {
     $nama = $_SESSION['nama'];
 }
 
 if($_SESSION['kode'] == 'G0089'){
-    header('Location: ./marcomm/index_marcomm.php');
-}elseif($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
-    header('Location: ./logistik/index_logistik.php');
+    header('Location: ../marcomm/index_marcomm.php');
+}elseif($_SESSION['kode'] != 'G0139' && $_SESSION['kode'] != 'G0993'){
+    header('Location: ../index.php');
 }
 ?>
 
 <?php $title = "STNK/Servis | WA Blast"; ?>
-<?php include("templates/header.php"); ?>
-<?php include("templates/sidebar.php"); ?>
+<?php include("./template_logistik/header.php"); ?>
+<?php include("./template_logistik/sidebar.php"); ?>
 
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
@@ -31,7 +31,7 @@ if($_SESSION['kode'] == 'G0089'){
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index_logistik.php">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">STNK/Servis</li>
                         </ol>
                     </nav>
@@ -52,43 +52,43 @@ if($_SESSION['kode'] == 'G0089'){
             switch($_GET['success']){
                 case '1':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>SUKSES!</strong> Data STNK berhasil di-update<br>';
+                            <strong>SUKSES!</strong> data STNK berhasil di-update<br>';
                     break;
                 case '-1':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>GAGAL!</strong> Data STNK gagal di-update<br>';
+                            <strong>GAGAL!</strong> data STNK gagal di-update<br>';
                     break;
                 case '2':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>SUKSES!</strong> Data Servis berhasil di-update<br>';
+                            <strong>SUKSES!</strong> data Servis berhasil di-update<br>';
                     break;
                 case '-2':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>GAGAL!</strong> Data Servis gagal di-update<br>';
+                            <strong>GAGAL!</strong> data Servis gagal di-update<br>';
                     break;
                 case '3':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>SUKSES!</strong> Data Kendaraan berhasil dihapus<br>';
+                            <strong>SUKSES!</strong> data Kendaraan berhasil dihapus<br>';
                     break;
                 case '-3':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>GAGAL!</strong> Data Kendaraan gagal dihapus<br>';
+                            <strong>GAGAL!</strong> data Kendaraan gagal dihapus<br>';
                     break;
                 case '4':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>SUKSES!</strong> Data Kendaraan berhasil ditambahkan<br>';
+                            <strong>SUKSES!</strong> data Kendaraan berhasil ditambahkan<br>';
                     break;
                 case '-4':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>GAGAL!</strong> Data Kendaraan gagal ditambahkan. Nopol Kendaraan duplikat<br>';
+                            <strong>GAGAL!</strong> data Kendaraan gagal ditambahkan. Nopol duplikat.<br>';
                     break;
                 case '5':
                     echo '<div class="alert alert-success alert-dismissible fade show">
-                            <strong>SUKSES!</strong> Data kendaraan berhasil di-import<br>';
+                            <strong>SUKSES!</strong> data kendaraan berhasil di-import<br>';
                     break;
                 case '-5':
                     echo '<div class="alert alert-danger alert-dismissible fade show">
-                            <strong>GAGAL!</strong> Data kendaraan gagal di-import<br>';
+                            <strong>GAGAL!</strong> data kendaraan gagal di-import<br>';
                     break;
             }
             echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -141,7 +141,7 @@ if($_SESSION['kode'] == 'G0089'){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php include('../functions/tableSTNK.php'); ?>
+                                            <?php include('../../functions/tableSTNK.php'); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -165,7 +165,7 @@ if($_SESSION['kode'] == 'G0089'){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php include('../functions/tableServis.php'); ?>
+                                            <?php include('../../functions/tableServis.php'); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -199,7 +199,7 @@ if($_SESSION['kode'] == 'G0089'){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php include('../functions/tableSTNKServis.php'); ?>
+                                            <?php include('../../functions/tableSTNKServis.php'); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -208,7 +208,7 @@ if($_SESSION['kode'] == 'G0089'){
                                 <h3>Import ke Database</h3>
                                 <hr>
                                 <!-- Form Upload File Excel -->
-                                <?php include('../functions/importExcelKendaraan.php'); ?>
+                                <?php include('./functions/importExcelKendaraan.php'); ?>
                                 <div class="row">
                                     <div class="col-6">
                                         <form method="POST" enctype="multipart/form-data">
@@ -232,7 +232,7 @@ if($_SESSION['kode'] == 'G0089'){
                                     </div>
                                     <div class="col-6">
                                         <div class="d-flex justify-content-end">
-                                            <button class="btn btn-secondary"><a href="../assets/file/Template_Inventaris_Kendaraan.xlsx" style="color: whitesmoke;">
+                                            <button class="btn btn-secondary"><a href="../../assets/file/Template_Inventaris_Kendaraan.xlsx" style="color: whitesmoke;">
                                                     <i class="mr-3 fas fa-download" aria-hidden="true"></i>Template Excel</a></button>
                                         </div>
                                     </div>
@@ -259,7 +259,7 @@ if($_SESSION['kode'] == 'G0089'){
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
 
-    <?php include("templates/footer.php"); ?>
+    <?php include("./template_logistik/footer.php"); ?>
 </div>
 
 <!-- Date Format -->
@@ -279,6 +279,6 @@ if($_SESSION['kode'] == 'G0089'){
 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js"></script>
 
 <!-- Data Table -->
-<script src="./js/dataTabel.js"></script>
+<script src="../js/dataTabel.js"></script>
 <!-- Script untuk modal -->
-<script type="text/javascript" src="./js/modal.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>

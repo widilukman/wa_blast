@@ -1,21 +1,21 @@
 <?php
 session_start(); //insisalisasi session
 if (!isset($_SESSION['nama'])) {
-    header('Location: login.php');
+    header('Location: ../login.php');
 } else {
     $nama = $_SESSION['nama'];
 }
 
 if($_SESSION['kode'] == 'G0089'){
-    header('Location: ./marcomm/index_marcomm.php');
-}elseif($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
-    header('Location: ./logistik/index_logistik.php');
+    header('Location: ../marcomm/index_marcomm.php');
+}elseif($_SESSION['kode'] != 'G0139' && $_SESSION['kode'] != 'G0993'){
+    header('Location: ../index.php');
 }
 ?>
 
 <?php $title = "Dashboard | WA Blast"; ?>
-<?php include("./templates/header.php"); ?>
-<?php include("./templates/sidebar.php"); ?>
+<?php include("./template_logistik/header.php"); ?>
+<?php include("./template_logistik/sidebar.php"); ?>
 
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
@@ -31,7 +31,7 @@ if($_SESSION['kode'] == 'G0089'){
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index_logistik.php">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                         </ol>
                     </nav>
@@ -79,7 +79,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/semingguSTNK1Thn.php'); ?>
+                                                <?php include('../../functions/semingguSTNK1Thn.php'); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -103,7 +103,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/semingguSTNK5Thn.php'); ?>
+                                                <?php include('../../functions/semingguSTNK5Thn.php'); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -139,7 +139,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/semingguServis.php'); ?>
+                                                <?php include('../../functions/semingguServis.php'); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -164,47 +164,9 @@ if($_SESSION['kode'] == 'G0089'){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/kmServis.php'); ?>
+                                                <?php include('../../functions/kmServis.php'); ?>
                                             </tbody>
                                         </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card text-white bg-info mb-3">
-                    <div class="card-header"><i class="fas fa-birthday-cake mr-3"></i>Reminder HUT Customer</div>
-                    <div class="card-body">
-                        <h5 class="card-title">HUT dalam 1 Minggu</h5>
-                        <div class="accordion" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingHUT">
-                                    <h2 class="mb-0">
-                                        <button class="btn  btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseHUT" aria-expanded="true" aria-controls="collapseHUT">
-                                            <strong>Data HUT Customer
-                                            <span class="badge badge-danger" id="badgeHUT" style="float: right;">0</span></strong>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseHUT" class="collapse" aria-labelledby="headingHUT" data-parent="#accordionExample">
-                                        <div class="table-responsive card-body">
-                                            <table class="table user-table no-wrap table-striped table-bordered" id="tableHUT">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Nama</th>
-                                                        <th>Tanggal Ulang Tahun</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php include('../functions/semingguUltah.php'); ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -222,5 +184,5 @@ if($_SESSION['kode'] == 'G0089'){
 <!-- End Container fluid  -->
 <!-- ============================================================== -->
 
-<?php include("./templates/footer.php"); ?>
+<?php include("./template_logistik/footer.php"); ?>
 </div>

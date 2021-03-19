@@ -27,18 +27,15 @@ if (isset($_POST['importCustomer'])) {
             $no_telepon     = $sheetData[$i]['2'];
             $tgl_hut        = $sheetData[$i]['3'];
             
-            $ada_duplikat = mysqli_query($db, "INSERT INTO customer (nama_customer, alamat, no_telepon, tgl_hut)
+            mysqli_query($db, "INSERT INTO customer (nama_customer, alamat, no_telepon, tgl_hut)
                                 VALUES ('$nama_customer', '$alamat', '$no_telepon', '$tgl_hut')");
-            if(!$ada_duplikat){
-                $l++;
-            }
         }
         echo '<script type="text/javascript">';
-        echo 'window.location.href = "../web/customer_karyawan.php?success=7&duplikat='.$l.'"';
+        echo 'window.location.href = "../web/customer_karyawan.php?success=7"';
         echo '</script>';
     }
     echo '<script type="text/javascript">';
-    echo 'window.location.href = "../web/customer_karyawan.php?success=-7";';
+    echo 'window.location.href = "../web/customer_karyawan.php?success=-7"';
     echo '</script>';
 }
 ?>
