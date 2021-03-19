@@ -84,7 +84,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item">
                             <b class="nav-link" href="" data-toggle="dropdown"
-                                aria-haspopup="false" aria-expanded="false"><?= $nama; ?></b>
+                                aria-haspopup="false" aria-expanded="false"><?= $_SESSION['nama']; ?></b>
                         </li>
                     </ul>
                 </div>
