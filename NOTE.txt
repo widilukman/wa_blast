@@ -1,8 +1,0 @@
-1. Login database diedit/disesuaikan
-   Lokasi : functions/db_login.php
-
-2. Link kirim gambar diedit/disesuaikan (https://..../$foto)
-   Lokasi : functions/broadcastProduk.php (line 25)
-
-3. Lokasi file untuk menjalankan script diedit/disesuaikan
-   Lokasi : functions/bat/ultah.bat
