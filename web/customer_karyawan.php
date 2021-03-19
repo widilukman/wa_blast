@@ -185,12 +185,12 @@ if($_SESSION['kode'] == 'G0089'){
                                 </div>
                             </div>
                             <!-- MODAL -->
-                            <?php include('modalEditCustomer.php'); ?>
-                            <?php include('modalEditKaryawan.php'); ?>
-                            <?php include('modalTambahCustomer.php'); ?>
-                            <?php include('modalTambahKaryawan.php'); ?>
-                            <?php include('modalHapusCustomer.php'); ?>
-                            <?php include('modalHapusKaryawan.php'); ?>
+                            <?php include('./modal/modalEditCustomer.php'); ?>
+                            <?php include('./modal/modalEditKaryawan.php'); ?>
+                            <?php include('./modal/modalTambahCustomer.php'); ?>
+                            <?php include('./modal/modalTambahKaryawan.php'); ?>
+                            <?php include('./modal/modalHapusCustomer.php'); ?>
+                            <?php include('./modal/modalHapusKaryawan.php'); ?>
                             <!-- MODAL -->
                             <div class="tab-pane fade" id="import-customer" role="tabpanel" aria-labelledby="import-customer-tab">
                                 <h3>Import Data Customer</h3>

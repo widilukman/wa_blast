@@ -171,11 +171,11 @@ if($_SESSION['kode'] == 'G0089'){
                                 </div>
                             </div>
                             <!-- MODAL -->
-                            <?php include('modalTambah.php'); ?>
-                            <?php include('modalInfo.php'); ?>
-                            <?php include('modalEditSTNK.php'); ?>
-                            <?php include('modalEditServis.php'); ?>
-                            <?php include('modalHapus.php'); ?>
+                            <?php include('./modal/modalTambah.php'); ?>
+                            <?php include('./modal/modalInfo.php'); ?>
+                            <?php include('./modal/modalEditSTNK.php'); ?>
+                            <?php include('./modal/modalEditServis.php'); ?>
+                            <?php include('./modal/modalHapus.php'); ?>
                             <!-- MODAL -->
                             <div class="tab-pane fade" id="nav-STNKServis" role="tabpanel" aria-labelledby="nav-STNKServis-tab">
                                 <h3>Export Data STNK & Servis</h3>
