@@ -4,7 +4,7 @@
 require_once('db_login.php');
 #assign a query
 $query_servis = "SELECT * FROM invent_kendaraan 
-                WHERE tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 8 DAY)
+                WHERE tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)
                 ORDER BY DAY(tgl_servis_berikutnya) ASC";
 #execute query
 $result_servis = $db->query($query_servis);

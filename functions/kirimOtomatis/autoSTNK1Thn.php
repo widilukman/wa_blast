@@ -4,7 +4,7 @@ require_once('db_login.php');
 
 //QUERY MENGAMBIL DATA KARYAWAN
 $query_karyawan = "SELECT * FROM invent_kendaraan 
-                    WHERE tgl_stnk_1_thn BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 8 DAY)";
+                    WHERE tgl_stnk_1_thn BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)";
 
 //EKSESKUSI QUERY
 $result_karyawan = $db->query($query_karyawan);
