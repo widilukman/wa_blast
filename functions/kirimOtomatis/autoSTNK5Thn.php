@@ -1,9 +1,9 @@
 <?php
 #include our login information
-require_once('db_login.php');
+require_once('../db_login.php');
 
 //QUERY MENGAMBIL DATA KARYAWAN
-$query_karyawan = "SELECT * FROM invent_kendaraan 
+$query_karyawan = "SELECT * FROM invent_kendaraan JOIN karyawan ON invent_kendaraan.holder = karyawan.nama_karyawan
                     WHERE tgl_stnk_5_thn BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)";
 
 //EKSESKUSI QUERY

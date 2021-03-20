@@ -1,6 +1,6 @@
 <?php
 #include our login information
-require_once('db_login.php');
+require_once('../db_login.php');
 
 //QUERY MENGAMBIL DATA CUSTOMER BERULANG TAHUN HARI INI
 $query_cust = "SELECT * FROM customer WHERE DAY(tgl_hut) = DAY(CURRENT_DATE) AND MONTH(tgl_hut) = MONTH(CURRENT_DATE)";
