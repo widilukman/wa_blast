@@ -27,6 +27,11 @@ $(document).ready(function() {
             title: 'Data_STNK',
             exportOptions: {
                 columns: ':visible'
+            },
+            customize: function ( xlsx ) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $( 'row c', sheet ).attr( 's', '25' );
+                $('row:first c', sheet).attr( 's', '51' );
             }
         }, 
         'colvis'],
@@ -42,20 +47,26 @@ $(document).ready(function() {
 
 //Datatables Untuk Servis
 $(document).ready(function() {
+    $.fn.dataTable.moment( 'DD-MM-YYYY' ); //SORTING TANGGAL
     var table = $('#tabel-servis').DataTable({
         lengthChange: false,
-        "order": [[ 6, "asc" ]],
+        "order": [[ 7, "asc" ]],
         buttons: [ {
             extend:'excelHtml5',
             text: 'Export as Excel',
             title: 'Data_Servis',
             exportOptions: {
                 columns: ':visible'
+            },
+            customize: function ( xlsx ) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $( 'row c', sheet ).attr( 's', '25' );
+                $('row:first c', sheet).attr( 's', '51' );
             }
         }, 
         'colvis'],
         columnDefs: [
-            { orderable: false, targets: [0, 1, 2, 3, 4, 8] }
+            { orderable: false, targets: [0, 1, 2, 3, 4, 9] }
         ],
         "pageLength": 5
     } );
@@ -74,6 +85,11 @@ $(document).ready(function() {
             title: 'Data_Customer',
             exportOptions: {
                 columns: ':visible'
+            },
+            customize: function ( xlsx ) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $( 'row c', sheet ).attr( 's', '25' );
+                $('row:first c', sheet).attr( 's', '51' );
             }
         }],
         columnDefs: [
@@ -96,6 +112,11 @@ $(document).ready(function() {
             title: 'Data_Karyawan',
             exportOptions: {
                 columns: ':visible'
+            },
+            customize: function ( xlsx ) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $( 'row c', sheet ).attr( 's', '25' );
+                $('row:first c', sheet).attr( 's', '51' );
             }
         }],
         columnDefs: [
@@ -118,11 +139,16 @@ $(document).ready(function() {
             title: 'Data_STNK_Servis',
             exportOptions: {
                 columns: ':visible'
+            },
+            customize: function ( xlsx ) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $( 'row c', sheet ).attr( 's', '25' );
+                $('row:first c', sheet).attr( 's', '51' );
             }
         }, 
         'colvis'],
         columnDefs: [
-            { orderable: false, targets: [0, 1, 3, 4, 8, 9, 10] }
+            { orderable: false, targets: [0, 1, 3, 4, 5, 9, 10, 11] }
         ],
         "pageLength": 5
     } );

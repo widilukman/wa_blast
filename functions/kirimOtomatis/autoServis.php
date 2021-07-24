@@ -3,8 +3,13 @@
 require_once('../db_login.php');
 
 //QUERY MENGAMBIL DATA KARYAWAN
-$query_karyawan = "SELECT * FROM invent_kendaraan JOIN karyawan ON invent_kendaraan.holder = karyawan.nama_karyawan
-                    WHERE tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)";
+//Bagian Supporting  : kirim pesan selama seminggu sejak 3 bulan sebelum tenggat servis
+//Bagian Marketing   : kirim pesan selama seminggu sejak 2 bulan sebelum tenggat servis
+//Bagian Operasional : kirim pesan selama seminggu sejak 1 bulan sebelum tenggat servis
+$query_karyawan = "SELECT * FROM invent_kendaraan JOIN karyawan ON invent_kendaraan.holder = karyawan.nama_karyawan 
+                    WHERE (bagian = 'suporting' AND tgl_servis_berikutnya BETWEEN DATE_ADD(NOW(), INTERVAL 83 DAY) AND DATE_ADD(NOW(), INTERVAL 90 DAY))
+                    OR (bagian = 'marketing' AND tgl_servis_berikutnya BETWEEN DATE_ADD(NOW(), INTERVAL 53 DAY) AND DATE_ADD(NOW(), INTERVAL 60 DAY)) 
+                    OR (bagian = 'operasional' AND tgl_servis_berikutnya BETWEEN DATE_ADD(NOW(), INTERVAL 23 DAY) AND DATE_ADD(NOW(), INTERVAL 30 DAY))";
 
 //EKSESKUSI QUERY
 $result_karyawan = $db->query($query_karyawan);
@@ -12,8 +17,8 @@ $result_karyawan = $db->query($query_karyawan);
 //KIRIM PESAN KE WHATSAPP KARYAWAN
 
 $i = 1;
-$message = "Kendaraan Anda mendekati saatnya servis. Periksa kembali tanggal servis kendaraan Anda";
 while($row_karyawan = $result_karyawan->fetch_object()){
+    $message = "Peringatan untuk ".$row_karyawan->holder."Kendaraan Anda dengan nopol ".$row_karyawan->nopol." mendekati saatnya servis. Segera servis kendaraan Anda";
     //KIRIM PESAN
     $my_apikey = "CPDDKYJ3J9ZX59V87YS4";
     $destination[$i] = $row_karyawan->no_telp_karyawan;

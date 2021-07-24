@@ -20,6 +20,7 @@ while ($row = $result_export->fetch_object()) {
     echo '<td>'.$row->jenis_kendaraan.'</td>';
     echo '<td>'.$row->thn_kendaraan.'</td>';
     echo '<td>'.$row->holder.'</td>';
+    echo '<td>'.$row->bagian.'</td>';
     echo '<td>'.$row->wilayah.'</td>';
     echo '<td>'.date_format($tgl_stnk_1_thn, "d-m-Y").'</td>';
     echo '<td>'.date_format($tgl_stnk_5_thn, "d-m-Y").'</td>';

@@ -35,6 +35,7 @@ while ($row = $result_servis->fetch_object()) {
     echo '<td>'.$row->nopol.'</td>';
     echo '<td>'.$row->jenis_kendaraan.'</td>';
     echo '<td>'.$row->holder.'</td>';
+    echo '<td>'.$row->bagian.'</td>';
     echo '<td>'.$row->km_terbaru.'</td>';
     echo '<td>'.$row->servis_pada_km.'</td>';
     echo '<td>'.date_format($tgl_servis[$i], "d-m-Y").'</td>';
@@ -51,6 +52,7 @@ while ($row = $result_servis->fetch_object()) {
     <button class="btn btn-warning edit-servis" data-toggle="modal"
     data-nopol_servis="'.$row->nopol.'" 
     data-holder_servis="'.$row->holder.'"
+    data-bagian="'.$row->bagian.'"
     data-servis_ke="'.$row->servis_ke.'"
     data-km_terbaru="'.$row->km_terbaru.'"
     data-km_servis="'.$row->servis_pada_km.'"

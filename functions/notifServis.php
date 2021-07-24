@@ -4,8 +4,10 @@
 require_once('db_login.php');
 #assign a query
 $query_servis = "SELECT * FROM invent_kendaraan 
-                WHERE tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)
-                ORDER BY DAY(tgl_servis_berikutnya) ASC";
+                WHERE (tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 90 DAY) AND bagian = 'suporting') 
+                OR (tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 60 DAY) AND bagian = 'marketing') 
+                OR (tgl_servis_berikutnya BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 30 DAY) AND bagian = 'operasional') 
+                ORDER BY tgl_servis_berikutnya ASC";
 #execute query
 $result_servis = $db->query($query_servis);
 if (!$result_servis) {
@@ -18,6 +20,7 @@ while ($row_servis = $result_servis->fetch_object()) {
     '<tr>
     <td>' . $row_servis->nopol . '</td>
     <td>' . $row_servis->holder . '</td>
+    <td>' . $row_servis->bagian . '</td>
     <td>' . date_format($tgl_servis_berikutnya, "d-m-Y") . '</td>
     </tr>';
 }

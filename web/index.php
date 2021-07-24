@@ -71,7 +71,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/semingguSTNK1Thn.php'); ?>
+                                                <?php include('../functions/notifSTNK1Thn.php'); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -95,7 +95,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/semingguSTNK5Thn.php'); ?>
+                                                <?php include('../functions/notifSTNK5Thn.php'); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -109,7 +109,7 @@ if($_SESSION['kode'] == 'G0089'){
                 <div class="card text-white bg-primary mb-3">
                     <div class="card-header"><i class="fas fa-wrench mr-3"></i>Reminder Servis</div>
                     <div class="card-body">
-                        <h5 class="card-title">Tenggat dalam 1 Minggu & KM Servis</h5>
+                        <h5 class="card-title">Tenggat & Batas KM Servis</h5>
                         <div class="accordion" id="accordionServis">
                             <div class="card">
                                 <div class="card-header" id="headingTglServis">
@@ -127,11 +127,12 @@ if($_SESSION['kode'] == 'G0089'){
                                                 <tr>
                                                     <th>Nopol</th>
                                                     <th>Holder</th>
+                                                    <th>Bagian</th>
                                                     <th>Tenggat Servis</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/semingguServis.php'); ?>
+                                                <?php include('../functions/notifServis.php'); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -145,7 +146,7 @@ if($_SESSION['kode'] == 'G0089'){
                                     </h2>
                                 </div>
                                 <div id="collapseKmServis" class="collapse" aria-labelledby="headingKmServis" data-parent="#accordionServis">
-                                    <div class="table-responsive card-body">
+                                    <div class="table-responsive card-body" style="overflow-y:hidden;">
                                         <table class="table user-table no-wrap table-striped table-bordered" id="tableKmServis">
                                             <thead>
                                                 <tr>
@@ -156,7 +157,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php include('../functions/kmServis.php'); ?>
+                                                <?php include('../functions/notifKmServis.php'); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -193,7 +194,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php include('../functions/semingguUltah.php'); ?>
+                                                    <?php include('../functions/notifUltah.php'); ?>
                                                 </tbody>
                                             </table>
                                         </div>

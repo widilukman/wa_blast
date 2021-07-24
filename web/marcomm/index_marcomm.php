@@ -69,7 +69,7 @@ if($_SESSION['kode'] == 'G0993' || $_SESSION['kode'] == 'G0139'){
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php include('../../functions/semingguUltah.php'); ?>
+                                                    <?php include('../../functions/notifUltah.php'); ?>
                                                 </tbody>
                                             </table>
                                         </div>

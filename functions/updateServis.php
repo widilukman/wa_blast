@@ -6,6 +6,7 @@ require_once('db_login.php');
 if(isset($_POST['updateServis'])){
     $nopol = $_POST['nopol'];
     $holder = $_POST['holder'];
+    $bagian = $_POST['bagian'];
     $servis_ke = $_POST['servis_ke'];
     $km_terbaru = $_POST['km_terbaru'];
     $servis_terakhir = $_POST['tgl_servis_terakhir'];
@@ -14,6 +15,7 @@ if(isset($_POST['updateServis'])){
 
     $query_update_servis = "UPDATE invent_kendaraan SET
                             holder = '$holder',
+                            bagian = '$bagian',
                             servis_ke = '$servis_ke',
                             km_terbaru = '$km_terbaru',
                             servis_pada_km = '$km_servis',

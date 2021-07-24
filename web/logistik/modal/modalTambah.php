@@ -20,11 +20,15 @@
                     </div>
                     <div class="form-group">
                         <label for="tahun-kendaraan">Tahun Kendaraan</label>
-                        <input type="text" class="form-control" name="thn_kendaraan" id="tahun-kendaraan" required>
+                        <input type="number" class="form-control" name="thn_kendaraan" id="tahun-kendaraan" required>
                     </div>
                     <div class="form-group">
                         <label for="holder-tambah">Holder</label>
                         <input type="text" class="form-control" name="holder-tambah" id="holder-tambah" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bagian-tambah">Bagian</label>
+                        <input type="text" class="form-control" name="bagian-tambah" id="bagian-tambah" required>
                     </div>
                     <div class="form-group">
                         <label for="wilayah">Wilayah</label>

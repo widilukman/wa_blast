@@ -3,8 +3,8 @@
 require_once('../db_login.php');
 
 //QUERY MENGAMBIL DATA KARYAWAN
-$query_karyawan = "SELECT * FROM invent_kendaraan JOIN karyawan ON invent_kendaraan.holder = karyawan.nama_karyawan
-                    WHERE tgl_stnk_1_thn BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)";
+$query_karyawan = "SELECT * FROM invent_kendaraan JOIN karyawan ON invent_kendaraan.holder = karyawan.nama_karyawan 
+                    WHERE DATE(tgl_stnk_1_thn) = DATE_ADD(DATE(NOW()), INTERVAL 7 DAY)";
 
 //EKSESKUSI QUERY
 $result_karyawan = $db->query($query_karyawan);
@@ -12,8 +12,8 @@ $result_karyawan = $db->query($query_karyawan);
 //KIRIM PESAN KE WHATSAPP KARYAWAN
 
 $i = 1;
-$message = "STNK kendaraan Anda mendekati tenggat 1 tahun. Periksa kembali STNK anda";
 while($row_karyawan = $result_karyawan->fetch_object()){
+    $message = "Peringatan untuk ".$row_karyawan->holder.", STNK kendaraan Anda dengan nopol ".$row_karyawan->nopol." mendekati tenggat 1 tahun. Segera perbarui STNK Anda.";
     //KIRIM PESAN
     $my_apikey = "CPDDKYJ3J9ZX59V87YS4";
     $destination[$i] = $row_karyawan->no_telp_karyawan;

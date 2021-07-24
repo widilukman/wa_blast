@@ -1,1 +1,0 @@
-php "D:\xampp\htdocs\wa_blast\functions\autoServis.php"

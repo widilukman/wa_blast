@@ -19,6 +19,10 @@
                         <input type="text" class="form-control" name="holder" id="holder-servis" required>
                     </div>
                     <div class="form-group">
+                        <label for="bagian">Bagian</label>
+                        <input type="text" class="form-control" name="bagian" id="bagian" required>
+                    </div>
+                    <div class="form-group">
                         <label for="servis-ke">Servis Ke-</label>
                         <input type="text" class="form-control" name="servis_ke" id="servis-ke" required>
                     </div>

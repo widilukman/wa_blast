@@ -4,6 +4,7 @@ $(document).ready(function() {
     $(document).on('click', '.edit-servis', function () {
         var nopolServis = $(this).data('nopol_servis');
         var holderServis = $(this).data('holder_servis');
+        var bagian = $(this).data('bagian');
         var servis_ke = $(this).data('servis_ke');
         var km_terbaru = $(this).data('km_terbaru');
         var km_servis = $(this).data('km_servis');
@@ -12,6 +13,7 @@ $(document).ready(function() {
         
         $(".Servis #nopol-servis").val(nopolServis);
         $(".Servis #holder-servis").val(holderServis);
+        $(".Servis #bagian").val(bagian);
         $(".Servis #servis-ke").val(servis_ke);
         $(".Servis #km_terbaru").val(km_terbaru);
         $(".Servis #km_servis").val(km_servis);

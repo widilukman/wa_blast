@@ -12,8 +12,8 @@ $result_karyawan = $db->query($query_karyawan);
 //KIRIM PESAN KE WHATSAPP KARYAWAN
 
 $i = 1;
-$message = "KM Kendaraan Anda hampir mendekati saatnya servis. Periksa kembali KM servis kendaraan Anda";
 while($row_karyawan = $result_karyawan->fetch_object()){
+    $message = "Peringatan untuk ".$row_karyawan->holder."KM Kendaraan Anda dengan nopol ".$row_karyawan->nopol." hampir mendekati saatnya servis. Segera servis kendaraan Anda";
     //KIRIM PESAN
     $my_apikey = "CPDDKYJ3J9ZX59V87YS4";
     $destination[$i] = $row_karyawan->no_telp_karyawan;

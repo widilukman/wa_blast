@@ -156,6 +156,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 <th class="border-top-0">Nopol</th>
                                                 <th class="border-top-0">Jenis Kendaraan</th>
                                                 <th class="border-top-0">Holder</th>
+                                                <th class="border-top-0">Bagian</th>
                                                 <th class="border-top-0">KM Terbaru</th>
                                                 <th class="border-top-0">KM Servis</th>
                                                 <th class="border-top-0">Servis Terakhir</th>
@@ -188,6 +189,7 @@ if($_SESSION['kode'] == 'G0089'){
                                                 <th class="border-top-0">Jenis Kendaraan</th>
                                                 <th class="border-top-0">Tahun Kendaraan</th>
                                                 <th class="border-top-0">Holder</th>
+                                                <th class="border-top-0">Bagian</th>
                                                 <th class="border-top-0">Wilayah</th>
                                                 <th class="border-top-0">Tenggat 1 Thn</th>
                                                 <th class="border-top-0">Tenggat 5 Thn</th>
